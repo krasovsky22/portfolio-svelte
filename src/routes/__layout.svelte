@@ -1,19 +1,29 @@
 <script lang="ts">
-	import Navbar from '@components/Navbar.svelte';
+	import ActivityBar from '@components/ActivityBar.svelte';
+import PrimaryBar from '@components/PrimaryBar.svelte';
 	import Titlebar from '@components/Titlebar.svelte';
 
 	import '../app.css';
 </script>
 
 <svelte:head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <script src="https://kit.fontawesome.com/f1f7a21e4f.js" crossorigin="anonymous"></script>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<script src="https://kit.fontawesome.com/f1f7a21e4f.js" crossorigin="anonymous"></script>
 </svelte:head>
 
-<main>
+<main class="flex flex-grow flex-col">
 	<Titlebar />
-	<Navbar />
-	<slot />
+	<div class="flex min-h-full flex-grow w-full">
+		<div class="border-r  border-x-black">
+			<ActivityBar />
+		</div>
+		<div class="border-r border-x-black">
+            <PrimaryBar />
+        </div>
+		<div class="flex-grow dark:bg-gray-800">
+			<slot />
+		</div>
+	</div>
 </main>
 
-<footer>footer</footer>
+<footer class="text-center">Built using <a href="https://svelte.dev/" target="_blank" class="text-blue-500 hover:text-blue-300">Svelte Kit</a></footer>

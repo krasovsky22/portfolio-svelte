@@ -27,7 +27,7 @@
 		</div>
 		<ul class="flex h-full items-center">
 			{#each layoutNavigationActions as { title, icon }}
-				<li class="cursor-pointer hover:bg-gray-500 h-full flex p-1">
+				<li class="cursor-pointer hover:text-blue-500 h-full flex p-1">
 					<div class="flex items-center" {title}>
 						<i class={`fa-solid ${icon}`} />
 					</div>
@@ -39,6 +39,7 @@
 
 <style>
 	.dot {
+        cursor: pointer;
 		height: 14px;
 		width: 14px;
 		border-radius: 50%;
