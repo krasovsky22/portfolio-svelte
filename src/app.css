@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'CascadiaCode';
+	font-style: normal;
+	font-weight: normal;
+	src: local('CascadiaCode'), url('/font/CascadiaCode.woff2') format('woff2');
+}
+
+:root {
+    font-family: 'CascadiaCode', serif;
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #252526;
+    color: #ccc;
+}
+
+footer {
+    margin-top: auto;
+}
