@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ActivityBar from '@components/ActivityBar.svelte';
-import PrimaryBar from '@components/PrimaryBar.svelte';
+	import PrimaryBar from '@components/PrimaryBar.svelte';
 	import Titlebar from '@components/Titlebar.svelte';
 
 	import '../app.css';
@@ -18,12 +18,18 @@ import PrimaryBar from '@components/PrimaryBar.svelte';
 			<ActivityBar />
 		</div>
 		<div class="border-r border-x-black">
-            <PrimaryBar />
-        </div>
+			<PrimaryBar />
+		</div>
 		<div class="flex-grow dark:bg-gray-800">
 			<slot />
 		</div>
 	</div>
 </main>
 
-<footer class="text-center">Built using <a href="https://svelte.dev/" target="_blank" class="text-blue-500 hover:text-blue-300">Svelte Kit</a></footer>
+<footer class="text-center bg-gray-700">
+	Built using <a
+		href="https://svelte.dev/"
+		target="_blank"
+		class="text-blue-500 hover:text-blue-300">Svelte Kit</a
+	>
+</footer>
