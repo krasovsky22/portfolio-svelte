@@ -1,4 +1,6 @@
 <script>
+	import Dot from '@components/Dot.svelte';
+
 	import { SidebarIcon, BottombarIcon, RightbarIcon } from '@components/icons';
 
 	const layoutNavigationActions = [
@@ -17,11 +19,11 @@
 	];
 </script>
 
-<div class="w-full h-8 flex text-center border rounded-b-md border-black">
-	<div class="flex gap-1 p-1">
-		<span class="dot bg-red-500" />
-		<span class="dot bg-yellow-500" />
-		<span class="dot bg-green-500" />
+<div class="w-full h-8 flex text-center items-center border rounded-b-md border-black">
+	<div class="flex gap-1 p-1 items-center">
+		<Dot class="bg-red-500" />
+		<Dot class="bg-yellow-500" />
+		<Dot class="bg-green-500" />
 	</div>
 	<div class="flex flex-grow items-center">
 		<div class="flex-grow text-gray-400">
@@ -38,13 +40,3 @@
 		</ul>
 	</div>
 </div>
-
-<style>
-	.dot {
-		cursor: pointer;
-		height: 14px;
-		width: 14px;
-		border-radius: 50%;
-		display: inline-block;
-	}
-</style>

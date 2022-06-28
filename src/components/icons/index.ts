@@ -6,6 +6,7 @@ export { default as GithubIcon } from './Github.svelte';
 export { default as SearchIcon } from './Search.svelte';
 export { default as AccountIcon } from './Account.svelte';
 export { default as SidebarIcon } from './Sidebar.svelte';
+export { default as MinimizeIcon } from './Minimize.svelte';
 export { default as LinkedinIcon } from './Linkedin.svelte';
 export { default as RightbarIcon } from './Rightbar.svelte';
 export { default as BottombarIcon } from './Bottombar.svelte';

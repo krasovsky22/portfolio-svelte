@@ -38,7 +38,7 @@
 <div class="w-12 flex flex-col h-full align-top">
 	<ul class="w-full flex flex-col justify-start flex-grow">
 		{#each activityBarItems as { title, icon }}
-			<li class="mx-auto p-2 cursor-pointer hover:text-blue-500">
+			<li class="mx-auto p-2 cursor-pointer hover:text-primary">
 				<div class="flex items-center" {title}>
 					<svelte:component this={icon} size={36} />
 				</div>
@@ -48,7 +48,7 @@
 
 	<ul class="w-full flex flex-col justify-center self-end">
 		{#each activityBarBottomItems as { title, icon }}
-			<li class="mx-auto p-2 cursor-pointer hover:text-blue-500">
+			<li class="mx-auto p-2 cursor-pointer hover:text-primary">
 				<div class="flex items-center" {title}>
 					<svelte:component this={icon} size={36} />
 				</div>

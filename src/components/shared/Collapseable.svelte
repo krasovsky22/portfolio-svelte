@@ -16,7 +16,7 @@
 <div class="w-full">
 	<div on:click={toggle}>
 		<slot name="header" {collapsed}>
-			<div class={`pl- flex gap-2 items-center w-full pl-${depth} ${headClass}`}>
+			<div class={`flex gap-2 items-center w-full pl-${depth} ${headClass}`}>
 				<ArrowIcon size={18} rotate={collapsed ? 0 : 1} />
 				{title}
 			</div>
@@ -25,7 +25,7 @@
 	{#if !collapsed}
 		<div transition:slide>
 			<slot name="body" {collapsed}>
-				<div class={`pl-${depth}`}>Midding Body</div>
+				<div class={`pl-${depth}`}>Missing Body</div>
 			</slot>
 		</div>
 	{/if}

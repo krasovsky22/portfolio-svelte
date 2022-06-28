@@ -1,6 +1,8 @@
 <script>
-	import { ArrowIcon } from '@components/icons';
+	import { ArrowIcon, MinimizeIcon } from '@components/icons';
 	import { Hoverable, Collapseable } from '@components/shared';
+
+	const documents = ['Home.html', 'About.html', 'Contact.html'];
 </script>
 
 <div class="w-44 flex flex-col text-xs h-full">
@@ -10,7 +12,7 @@
 			<div
 				slot="header"
 				let:collapsed
-				class="py-0.5 px-1 uppercase border-gray-500 border text-gray-400 bg-gray-700 flex items-center space-between cursor-pointer"
+				class="py-0.5 px-1 uppercase border-black-lighter border text-black-lighter bg-black-light flex items-center space-between cursor-pointer"
 			>
 				<div class="flex gap-3 flex-grow items-center">
 					<ArrowIcon size={18} rotate={collapsed ? 0 : 1} />
@@ -18,16 +20,17 @@
 					Porftolio-svelte
 				</div>
 				{#if hovered}
-					<div class="cursor-pointer hover:bg-gray-500 px-1">
-						<i class="fa-solid fa-down-left-and-up-right-to-center fa-sm mx-auto" />
+					<div class="cursor-pointer px-1">
+						<MinimizeIcon size={14} />
 					</div>
 				{/if}
 			</div>
-			<div
-				slot="body"
-				class="py-0.5 flex items-center space-between cursor-pointer"
-			>
-				<Collapseable title="src" depth={2} headClass="hover:bg-slate-500" collapsed/>
+			<div slot="body" class="py-0.5 flex items-center space-between cursor-pointer">
+				<div class="w-full flex flex-col gap-1">
+					{#each documents as document}
+						<div class="hover:bg-slate-500 pl-4 w-full">{document}</div>
+					{/each}
+				</div>
 			</div>
 		</Collapseable>
 	</Hoverable>

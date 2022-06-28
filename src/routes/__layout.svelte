@@ -13,16 +13,16 @@
 		<div class="border-r border-x-black">
 			<PrimaryBar />
 		</div>
-		<div class="flex-grow dark:bg-gray-800 p-3">
+		<div class="flex-grow dark:bg-black-light p-3">
 			<slot />
 		</div>
 	</div>
 </main>
 
-<footer class="text-center bg-gray-700">
+<footer class="text-center bg-black-light">
 	Built using <a
 		href="https://svelte.dev/"
 		target="_blank"
-		class="text-blue-500 hover:text-blue-300">Svelte Kit</a
+		class="text-primary hover:text-primary-light">Svelte Kit</a
 	>
 </footer>
