@@ -5,4 +5,4 @@
 	export let size = DEFAULT_ICON_SIZE;
 </script>
 
-<Icon icon="dashicons:arrow-right-alt2" width={size} height={size} {...$$props} />
+<Icon icon="dashicons:arrow-right-alt2" width={size} height={size} {...$$restProps} />
