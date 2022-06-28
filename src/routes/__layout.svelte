@@ -1,18 +1,11 @@
 <script lang="ts">
-	import ActivityBar from '@components/ActivityBar.svelte';
-	import PrimaryBar from '@components/PrimaryBar.svelte';
-	import Titlebar from '@components/Titlebar.svelte';
+	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
 
 	import '../app.css';
 </script>
 
-<svelte:head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<script src="https://kit.fontawesome.com/f1f7a21e4f.js" crossorigin="anonymous"></script>
-</svelte:head>
-
 <main class="flex flex-grow flex-col">
-	<Titlebar />
+	<TitleBar />
 	<div class="flex min-h-full flex-grow w-full">
 		<div class="border-r  border-x-black">
 			<ActivityBar />
@@ -20,7 +13,7 @@
 		<div class="border-r border-x-black">
 			<PrimaryBar />
 		</div>
-		<div class="flex-grow dark:bg-gray-800">
+		<div class="flex-grow dark:bg-gray-800 p-3">
 			<slot />
 		</div>
 	</div>

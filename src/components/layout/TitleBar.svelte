@@ -1,16 +1,18 @@
 <script>
+	import { SidebarIcon, BottombarIcon, RightbarIcon } from '@components/icons';
+
 	const layoutNavigationActions = [
 		{
 			title: 'Toggle Primary Bar',
-			icon: 'fa-bars'
+			icon: SidebarIcon
 		},
-        {
+		{
 			title: 'Toggle Panel',
-			icon: 'fa-window-maximize'
+			icon: BottombarIcon
 		},
-        {
+		{
 			title: 'Toggle Secondary Side Bar',
-			icon: 'fa-window-restore'
+			icon: RightbarIcon
 		}
 	];
 </script>
@@ -27,9 +29,9 @@
 		</div>
 		<ul class="flex h-full items-center">
 			{#each layoutNavigationActions as { title, icon }}
-				<li class="cursor-pointer hover:text-blue-500 h-full flex p-1">
+				<li class="cursor-pointer hover:text-blue-500 h-full flex py-1">
 					<div class="flex items-center" {title}>
-						<i class={`fa-solid ${icon}`} />
+						<svelte:component this={icon} />
 					</div>
 				</li>
 			{/each}
@@ -39,7 +41,7 @@
 
 <style>
 	.dot {
-        cursor: pointer;
+		cursor: pointer;
 		height: 14px;
 		width: 14px;
 		border-radius: 50%;
