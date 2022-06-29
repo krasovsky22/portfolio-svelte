@@ -10,6 +10,12 @@
 		"sourceMap": true,
 		"strict": true,
         "paths": {
+            "@": [
+				"src"
+			],
+			"@/*": [
+				"src/*"
+			],
 			"@stores": [
 				"src/stores"
 			],

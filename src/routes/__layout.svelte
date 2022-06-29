@@ -1,8 +1,14 @@
+<script context="module" lang="ts">
+	export const prerender = true;
+</script>
+
 <script lang="ts">
 	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
 
 	import '../app.css';
 </script>
+
+
 
 <main class="flex flex-grow flex-col">
 	<TitleBar />
@@ -13,16 +19,17 @@
 		<div class="border-r border-x-black">
 			<PrimaryBar />
 		</div>
-		<div class="flex-grow dark:bg-black-light p-3">
-			<slot />
+		<div class="flex-grow flex flex-col dark:bg-black-light">
+			<div class="flex-grow p-3 ">
+				<slot />
+			</div>
+			<div class="text-center pr-56">
+				Built using <a
+					href="https://svelte.dev/"
+					target="_blank"
+					class="text-primary hover:text-primary-light">Svelte Kit</a
+				>
+			</div>
 		</div>
 	</div>
 </main>
-
-<footer class="text-center bg-black-light">
-	Built using <a
-		href="https://svelte.dev/"
-		target="_blank"
-		class="text-primary hover:text-primary-light">Svelte Kit</a
-	>
-</footer>
