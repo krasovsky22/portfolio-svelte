@@ -1,6 +1,22 @@
-<script>
-	import { FileIcon, SearchIcon, GraphIcon, GithubIcon, LinkedinIcon, AccountIcon, GearIcon } from '@components/icons';
-	const activityBarItems = [
+<script lang="ts">
+	import {
+		FileIcon,
+		SearchIcon,
+		GraphIcon,
+		GithubIcon,
+		LinkedinIcon,
+		AccountIcon,
+		GearIcon
+	} from '@components/icons';
+	import { element } from 'svelte/internal';
+	import Svelte from '../icons/Svelte.svelte';
+
+	type ActivityBarItemType = {
+		title: string;
+		icon: any;
+		url?: string;
+	};
+	const activityBarItems: ActivityBarItemType[] = [
 		{
 			title: 'Explorer',
 			icon: FileIcon
@@ -11,15 +27,18 @@
 		},
 		{
 			title: 'Source Control',
-			icon: GraphIcon
+			icon: GraphIcon,
+			url: 'https://github.com/krasovsky22/portfolio-svelte'
 		},
 		{
 			title: 'Github',
-			icon: GithubIcon
+			icon: GithubIcon,
+			url: 'https://github.com/krasovsky22'
 		},
 		{
 			title: 'LinkedIn',
-			icon: LinkedinIcon
+			icon: LinkedinIcon,
+			url: 'https://www.linkedin.com/in/vlad-krasovski-1ba85542'
 		}
 	];
 
@@ -29,18 +48,24 @@
 			icon: AccountIcon
 		},
 		{
-		    title: 'Manage',
-		    icon: GearIcon
-		},
+			title: 'Manage',
+			icon: GearIcon
+		}
 	];
 </script>
 
 <div class="w-12 flex flex-col h-full align-top">
 	<ul class="w-full flex flex-col justify-start flex-grow">
-		{#each activityBarItems as { title, icon }}
+		{#each activityBarItems as { title, icon, url }}
 			<li class="mx-auto p-2 cursor-pointer hover:text-primary">
 				<div class="flex items-center" {title}>
-					<svelte:component this={icon} size={36} />
+					{#if url}
+						<a href={url} target="_blank">
+							<svelte:component this={icon} size={36} />
+						</a>
+					{:else}
+						<svelte:component this={icon} size={36} />
+					{/if}
 				</div>
 			</li>
 		{/each}
