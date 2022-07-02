@@ -6,6 +6,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
+                mainBg: 'var(--color-main-bg)',
                 black: {
                     DEFAULT: colors.black,
                     light: colors.gray[800],
