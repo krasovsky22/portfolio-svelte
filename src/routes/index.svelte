@@ -1,13 +1,14 @@
 <script lang="ts">
+    import { fade } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
-	import { fade } from 'svelte/transition';
 	import { typeWriterTransition } from '@utils/transitions';
+    import { AwsSolutionArchitectBadge } from '@components/badges';
 
 	let visible = false;
 	let animationFinished = false;
 	let interval: NodeJS.Timer;
 
-    const DURATION = 500;
+	const DURATION = 500;
 
 	onMount(() => {
 		visible = true;
@@ -42,10 +43,11 @@
 					</h2>
 				</div>
 				{#if animationFinished}
-					<p transition:fade={{duration: DURATION}} class="text-orange-200">|</p>
+					<p transition:fade={{ duration: DURATION }} class="text-orange-200">|</p>
 				{/if}
 			</div>
 		{/if}
+        <AwsSolutionArchitectBadge />
 	</div>
 </section>
 
