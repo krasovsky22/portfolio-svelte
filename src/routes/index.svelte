@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { fade } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
 	import { typeWriterTransition } from '@utils/transitions';
-    import { AwsSolutionArchitectBadge } from '@components/badges';
+	import { AwsSolutionArchitectBadge } from '@components/badges';
 
 	let visible = false;
 	let animationFinished = false;
@@ -35,19 +35,16 @@
 <section class="relative flex-grow section-image flex items-center">
 	<div class="ml-[15%] flex flex-col gap-6 h-1/3">
 		<div class="text-6xl"><h1>Vlad Krasovsky</h1></div>
-		{#if visible}
-			<div class="text-2xl flex gap-1 items-center">
-				<div>
-					<h2 in:typeWriterTransition on:introend={createFlashing}>
-						Full Stack Software Developer
-					</h2>
-				</div>
-				{#if animationFinished}
-					<p transition:fade={{ duration: DURATION / 2 }} class="text-orange-200">|</p>
-				{/if}
-			</div>
-		{/if}
-        <AwsSolutionArchitectBadge />
+		<div class="text-2xl flex gap-1 items-center">
+			{#if visible}
+				<h2 in:typeWriterTransition on:introend={createFlashing}>Full Stack Software Developer</h2>
+			{/if}
+			{#if animationFinished}
+				<p transition:fade={{ duration: DURATION / 2 }} class="text-orange-200">|</p>
+			{/if}
+		</div>
+
+		<AwsSolutionArchitectBadge />
 	</div>
 </section>
 
