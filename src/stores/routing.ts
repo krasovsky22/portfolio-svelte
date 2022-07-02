@@ -48,10 +48,17 @@ export const Routes: Record<POSSIBLE_ROUTES | string, ROUTE_TYPE> = {
 	}
 };
 
+const urlToRouteId = (url: string): POSSIBLE_ROUTES | string => url.replace('/', '');
+
 export const pageDocuments = derived(
     page,
     $page => documents.map(document => ({
         ...document,
-        isActive: document.url.replace('/', '') === $page.routeId
+        isActive: urlToRouteId(document.url) === $page.routeId
     }))
 );
+
+export const activePage = derived(
+    page,
+    $page => documents.find(document => urlToRouteId(document.url) === $page.routeId)
+)

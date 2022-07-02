@@ -19,6 +19,7 @@ const config = {
 
 		alias: {
 			'@': 'src',
+			'@utils': 'src/utils',
 			'@stores': 'src/stores',
 			'@components': 'src/components'
 		}

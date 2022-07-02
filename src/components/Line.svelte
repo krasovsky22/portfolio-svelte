@@ -5,7 +5,7 @@
 	export let lineNumber: number = 1;
 </script>
 
-<Hoverable classNames="h-full flex gap-3 items-center" let:hovering>
+<Hoverable classNames="flex gap-3 items-center" let:hovering>
 	<div class="w-1 px-1 h-full">
 		{#if hovering}
 			<Dot class="bg-red-900 mb-0.5" size={6} />

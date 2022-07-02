@@ -9,25 +9,15 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-        "paths": {
-            "@": [
-				"src"
-			],
-			"@/*": [
-				"src/*"
-			],
-			"@stores": [
-				"src/stores"
-			],
-			"@stores/*": [
-				"src/stores/*"
-			],
-            "@components": [
-				"src/components"
-			],
-			"@components/*": [
-				"src/components/*"
-			]
-		},
+		"paths": {
+			"@": ["src"],
+			"@/*": ["src/*"],
+			"@utils": ["src/utils"],
+			"@utils/*": ["src/utils/*"],
+			"@stores": ["src/stores"],
+			"@stores/*": ["src/stores/*"],
+			"@components": ["src/components"],
+			"@components/*": ["src/components/*"]
+		}
 	}
 }

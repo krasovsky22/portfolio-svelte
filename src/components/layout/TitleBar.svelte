@@ -1,6 +1,7 @@
 <script>
 	import Dot from '@components/Dot.svelte';
 
+    import { activePage } from '@stores/routing';
 	import { SidebarIcon, BottombarIcon, RightbarIcon } from '@components/icons';
 
 	const layoutNavigationActions = [
@@ -26,8 +27,8 @@
 		<Dot class="bg-green-500" />
 	</div>
 	<div class="flex flex-grow items-center">
-		<div class="flex-grow text-gray-400">
-			<h4>Title Here</h4>
+		<div class="flex-grow text-gray-300">
+			<h4>{$activePage?.display} - portfolio-svelte</h4>
 		</div>
 		<ul class="flex h-full items-center">
 			{#each layoutNavigationActions as { title, icon }}

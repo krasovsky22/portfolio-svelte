@@ -3,10 +3,10 @@
 </script>
 
 <script lang="ts">
-    import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
-	import PageContainer from '@/components/layout/page-container/PageContainer.svelte';
-
 	import '../app.css';
+	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
+	import PageContainer from '@/components/layout/page-container/PageContainer.svelte';
+	import Footer from '@/components/layout/Footer.svelte';
 </script>
 
 <main class="flex flex-grow flex-col">
@@ -19,18 +19,12 @@
 			<PrimaryBar />
 		</div>
 		<div class="flex-grow flex flex-col dark:bg-black-light">
-			<div class="flex-grow">
+			<div class="flex-grow flex">
 				<PageContainer>
 					<slot />
 				</PageContainer>
 			</div>
-			<div class="text-center pr-56">
-				Built using <a
-					href="https://svelte.dev/"
-					target="_blank"
-					class="text-primary hover:text-primary-light">Svelte Kit</a
-				>
-			</div>
+			<Footer />
 		</div>
 	</div>
 </main>

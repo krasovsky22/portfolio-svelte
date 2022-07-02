@@ -5,4 +5,4 @@
 	export let size = DEFAULT_ICON_SIZE;
 </script>
 
-<Icon icon="vscode-icons:file-type-svelte" width={size} height={size} {...$$restProps} />
+<Icon icon="bytesize:bell" width={size} height={size} {...$$restProps} />
