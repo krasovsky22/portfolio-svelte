@@ -4,17 +4,21 @@
 
 <script lang="ts">
 	import '../app.css';
+	import { siteLayout } from '@stores/site-layout';
+	import Footer from '@/components/layout/Footer.svelte';
 	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
 	import PageContainer from '@/components/layout/page-container/PageContainer.svelte';
-	import Footer from '@/components/layout/Footer.svelte';
 </script>
 
 <main class="flex flex-grow flex-col">
 	<TitleBar />
 	<div class="flex min-h-full flex-grow w-full">
 		<div class="border-r  border-x-black">
-			<ActivityBar />
+			{#if $siteLayout.showActivityBar}
+				<ActivityBar />
+			{/if}
 		</div>
+
 		<div class="border-r border-x-black">
 			<PrimaryBar />
 		</div>

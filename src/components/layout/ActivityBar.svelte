@@ -10,7 +10,8 @@
 		LinkedinIcon
 	} from '@components/icons';
 
-    import { info } from '@stores/info';
+	import { info } from '@stores/info';
+	import { fly } from 'svelte/transition';
 
 	type ActivityBarItemType = {
 		title: string;
@@ -60,7 +61,7 @@
 	];
 </script>
 
-<div class="w-12 flex flex-col h-full align-top">
+<div class="w-12 flex flex-col h-full align-top" transition:fly={{ x: -30 }}>
 	<ul class="w-full flex flex-col justify-start flex-grow">
 		{#each activityBarItems as { title, icon, url }}
 			<li class="mx-auto p-2 cursor-pointer hover:text-primary">
