@@ -60,7 +60,7 @@
 			<li class="mx-auto p-2 cursor-pointer hover:text-primary">
 				<div class="flex items-center" {title}>
 					{#if url}
-						<a href={url} target="_blank">
+						<a href={url} target="_blank" {title}>
 							<svelte:component this={icon} size={36} />
 						</a>
 					{:else}

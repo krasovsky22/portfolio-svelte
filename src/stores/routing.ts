@@ -1,6 +1,6 @@
 import { page } from '$app/stores';
 import { derived } from 'svelte/store';
-import { SvelteIcon } from '@components/icons';
+import { SvelteIcon, BracketsIcon } from '@components/icons';
 
 type DOCUMENT_TYPE = {
 	icon: any;
@@ -17,21 +17,28 @@ type ROUTE_TYPE = {
 
 export enum POSSIBLE_ROUTES {
 	INDEX = '/',
-	PROFILE = '/profile'
+	ABOUTME = '/about',
+	SOCIAL = '/social'
 }
 
 const documents: DOCUMENT_TYPE[] = [
     {
-        isActive: true,
+        isActive: false,
 		icon: SvelteIcon,
 		display: 'Index.svelte',
 		url: POSSIBLE_ROUTES.INDEX
 	},
 	{
-        isActive: true,
+        isActive: false,
 		icon: SvelteIcon,
-		display: 'Profile.svelte',
-		url: POSSIBLE_ROUTES.PROFILE
+		display: 'AboutMe.svelte',
+		url: POSSIBLE_ROUTES.ABOUTME
+	},
+    {
+        isActive: false,
+		icon: BracketsIcon,
+		display: 'Social.json',
+		url: POSSIBLE_ROUTES.SOCIAL
 	}
 ];
 
@@ -41,10 +48,10 @@ export const Routes: Record<POSSIBLE_ROUTES | string, ROUTE_TYPE> = {
 		title: 'Vlad Krasovsky Portfolio',
 		description: 'Vlad Krasovsky Portfolio'
 	},
-	[POSSIBLE_ROUTES.PROFILE]: {
+	[POSSIBLE_ROUTES.ABOUTME]: {
 		id: POSSIBLE_ROUTES.INDEX,
-		title: 'Vlad Krasovsky Profile',
-		description: 'Vlad Krasovsky Profile'
+		title: 'Vlad Krasovsky About Me',
+		description: 'Vlad Krasovsky About Me'
 	}
 };
 

@@ -14,7 +14,7 @@
 	<div class="w-10 px-2 text-sm">{lineNumber}</div>
 	<div class="flex-grow">
 		<slot>
-			<p />
+			<p>&nbsp;</p>
 		</slot>
 	</div>
 </Hoverable>
