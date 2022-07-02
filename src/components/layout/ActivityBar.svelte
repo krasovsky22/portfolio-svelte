@@ -1,15 +1,16 @@
 <script lang="ts">
 	import {
+		GearIcon,
 		FileIcon,
-		SearchIcon,
 		GraphIcon,
 		GithubIcon,
-		LinkedinIcon,
+		SearchIcon,
 		AccountIcon,
-		GearIcon
+		DiscordIcon,
+		LinkedinIcon
 	} from '@components/icons';
-	import { element } from 'svelte/internal';
-	import Svelte from '../icons/Svelte.svelte';
+
+    import { info } from '@stores/info';
 
 	type ActivityBarItemType = {
 		title: string;
@@ -28,17 +29,22 @@
 		{
 			title: 'Source Control',
 			icon: GraphIcon,
-			url: 'https://github.com/krasovsky22/portfolio-svelte'
+			url: $info.codeSource.url
 		},
 		{
 			title: 'Github',
 			icon: GithubIcon,
-			url: 'https://github.com/krasovsky22'
+			url: $info.github.url
 		},
 		{
 			title: 'LinkedIn',
 			icon: LinkedinIcon,
-			url: 'https://www.linkedin.com/in/vlad-krasovski-1ba85542'
+			url: $info.linkedIn.url
+		},
+		{
+			title: 'Discord',
+			icon: DiscordIcon,
+			url: $info.discord.url
 		}
 	];
 

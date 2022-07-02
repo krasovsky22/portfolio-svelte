@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { info } from '@stores/info';
 	import Line from '@components/Line.svelte';
 </script>
 
@@ -11,7 +12,7 @@
 	<Line lineNumber={2}
 		><span class="text-purple-400 ml-16"
 			>"email" : <span class="text-green-400"
-				>"<a href="mailto:vlad.krasovski@yahoo.com">vlad.krasovski@yahoo.com"</a></span
+				>"<a href={`mailto:${$info.email.url}`}>vlad.krasovski@yahoo.com"</a></span
 			><span class="text-black-lighter">,</span></span
 		></Line
 	>
@@ -19,7 +20,7 @@
 	<Line lineNumber={2}
 		><span class="text-purple-400 ml-16"
 			>"github" : <span class="text-green-400"
-				>"<a href="https://github.com/krasovsky22" target="_blank">https://github.com/krasovsky22</a
+				>"<a href={$info.github.url} target="_blank">{$info.github.name}</a
 				>"</span
 			><span class="text-black-lighter">,</span></span
 		></Line
@@ -28,7 +29,7 @@
 	<Line lineNumber={2}
 		><span class="text-purple-400 ml-16"
 			>"discord" : <span class="text-green-400"
-				>"<a href="hhttps://discord.com/users/3877" target="_blank">RandomPotato#3877</a
+				>"<a href={$info.discord.url} target="_blank">{$info.discord.name}</a
 				>"</span
 			><span class="text-black-lighter">,</span></span
 		></Line
@@ -37,8 +38,8 @@
 	<Line lineNumber={2}
 		><span class="text-purple-400 ml-16"
 			>"linkedIn" : <span class="text-green-400"
-				>"<a href="https://www.linkedin.com/in/vlad-krasovski-1ba85542" target="_blank"
-					>vlad-krasovski-1ba85542</a
+				>"<a href={$info.linkedIn.url} target="_blank"
+					>{$info.linkedIn.name}</a
 				>"</span
 			><span class="text-black-lighter">,</span></span
 		></Line
