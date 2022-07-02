@@ -4,6 +4,7 @@ export { default as GraphIcon } from './Graph.svelte';
 export { default as ArrowIcon } from './Arrow.svelte';
 export { default as GithubIcon } from './Github.svelte';
 export { default as SearchIcon } from './Search.svelte';
+export { default as SvelteIcon } from './Svelte.svelte';
 export { default as AccountIcon } from './Account.svelte';
 export { default as SidebarIcon } from './Sidebar.svelte';
 export { default as MinimizeIcon } from './Minimize.svelte';

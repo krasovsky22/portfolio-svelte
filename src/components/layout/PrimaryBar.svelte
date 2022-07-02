@@ -1,27 +1,12 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { POSSIBLE_ROUTES } from '@/constants';
+    import { pageDocuments } from '@stores/routing';
 	import { ArrowIcon, MinimizeIcon } from '@components/icons';
 	import { Hoverable, Collapseable } from '@components/shared';
-
-	type DOCUMENT_TYPE = {
-		display: string;
-		url: POSSIBLE_ROUTES;
-	};
-	const documents: DOCUMENT_TYPE[] = [
-		{
-			display: 'Index.html',
-			url: POSSIBLE_ROUTES.INDEX
-		},
-		{
-			display: 'Profile.html',
-			url: POSSIBLE_ROUTES.PROFILE
-		}
-	];
+import PageLink from './PageLink.svelte';
 </script>
 
 <div class="w-44 flex flex-col text-xs h-full">
-	<div class="p-2 ">Explorer</div>
+	<div class="p-2">Explorer</div>
 	<Hoverable let:hovering={hovered} classNames="h-full">
 		<Collapseable>
 			<div
@@ -41,10 +26,8 @@
 			</div>
 			<div slot="body" class="py-0.5 flex items-center space-between cursor-pointer">
 				<div class="w-full flex flex-col">
-					{#each documents as { display, url }}
-						<a href={url} class="p-1 hover:bg-slate-500" class:bg-zinc-700={url.replace('/', '') === $page.routeId}
-							><div class="pl-4 w-full">{display}</div>
-						</a>
+					{#each $pageDocuments as page}
+						<PageLink {...page} innerClasses="pl-4"/>
 					{/each}
 				</div>
 			</div>

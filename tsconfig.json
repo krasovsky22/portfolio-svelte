@@ -23,7 +23,7 @@
 				"src/stores/*"
 			],
             "@components": [
-				"src/licomponentsb"
+				"src/components"
 			],
 			"@components/*": [
 				"src/components/*"

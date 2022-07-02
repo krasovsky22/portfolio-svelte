@@ -3,12 +3,11 @@
 </script>
 
 <script lang="ts">
-	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
+    import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
+	import PageContainer from '@/components/layout/page-container/PageContainer.svelte';
 
 	import '../app.css';
 </script>
-
-
 
 <main class="flex flex-grow flex-col">
 	<TitleBar />
@@ -20,8 +19,10 @@
 			<PrimaryBar />
 		</div>
 		<div class="flex-grow flex flex-col dark:bg-black-light">
-			<div class="flex-grow p-3 ">
-				<slot />
+			<div class="flex-grow">
+				<PageContainer>
+					<slot />
+				</PageContainer>
 			</div>
 			<div class="text-center pr-56">
 				Built using <a
