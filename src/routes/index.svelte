@@ -38,12 +38,12 @@
 		{#if visible}
 			<div class="text-2xl flex gap-1 items-center">
 				<div>
-					<h2 transition:typeWriterTransition on:introend={createFlashing}>
+					<h2 in:typeWriterTransition on:introend={createFlashing}>
 						Full Stack Software Developer
 					</h2>
 				</div>
 				{#if animationFinished}
-					<p transition:fade={{ duration: DURATION }} class="text-orange-200">|</p>
+					<p transition:fade={{ duration: DURATION / 2 }} class="text-orange-200">|</p>
 				{/if}
 			</div>
 		{/if}
