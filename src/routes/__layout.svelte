@@ -8,6 +8,7 @@
 	import Footer from '@/components/layout/Footer.svelte';
 	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
 	import PageContainer from '@/components/layout/page-container/PageContainer.svelte';
+import RightBar from '@/components/layout/RightBar.svelte';
 </script>
 
 <main class="flex flex-grow flex-col">
@@ -29,6 +30,11 @@
 				</PageContainer>
 			</div>
 			<Footer />
+		</div>
+        <div class="border-r border-x-black">
+			{#if $siteLayout.showRightBar}
+				<RightBar />
+			{/if}
 		</div>
 	</div>
 </main>

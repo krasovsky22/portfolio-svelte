@@ -14,12 +14,12 @@
 		{
 			title: 'Toggle Panel',
 			icon: BottombarIcon,
-			action: () => {}
+			action: () => {$siteLayout.showConsoleBar = !$siteLayout.showConsoleBar}
 		},
 		{
 			title: 'Toggle Secondary Side Bar',
 			icon: RightbarIcon,
-			action: () => {}
+			action: () => {$siteLayout.showRightBar = !$siteLayout.showRightBar}
 		}
 	];
 </script>

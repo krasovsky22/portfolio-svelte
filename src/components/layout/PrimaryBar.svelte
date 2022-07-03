@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { fly } from 'svelte/transition';
-    import { pageDocuments } from '@stores/routing';
+	import { fly } from 'svelte/transition';
+	import { pageDocuments } from '@stores/routing';
 	import { ArrowIcon, MinimizeIcon } from '@components/icons';
 	import { Hoverable, Collapseable } from '@components/shared';
 
-import PageLink from './PageLink.svelte';
+	import PageLink from './PageLink.svelte';
 </script>
 
 <div class="w-44 flex flex-col text-xs h-full" transition:fly={{ x: -30 }}>
@@ -29,7 +29,7 @@ import PageLink from './PageLink.svelte';
 			<div slot="body" class="py-0.5 flex items-center space-between cursor-pointer">
 				<div class="w-full flex flex-col">
 					{#each $pageDocuments as page}
-						<PageLink {...page} innerClasses="pl-4"/>
+						<PageLink {...page} innerClasses="pl-4" />
 					{/each}
 				</div>
 			</div>

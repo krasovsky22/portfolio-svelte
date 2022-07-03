@@ -1,3 +1,4 @@
+export { default as XIcon } from './X.svelte';
 export { default as GearIcon } from './Gear.svelte';
 export { default as BellIcon } from './Bell.svelte';
 export { default as FileIcon } from './File.svelte';
