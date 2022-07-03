@@ -9,10 +9,7 @@
 		{
 			title: 'Toggle Primary Bar',
 			icon: SidebarIcon,
-			action: () => {
-				console.log($siteLayout.showActivityBar);
-				$siteLayout.showActivityBar = !$siteLayout.showActivityBar;
-			}
+			action: () => ($siteLayout.showPrimaryBar = !$siteLayout.showPrimaryBar)
 		},
 		{
 			title: 'Toggle Panel',

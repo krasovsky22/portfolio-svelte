@@ -14,13 +14,13 @@
 	<TitleBar />
 	<div class="flex min-h-full flex-grow w-full">
 		<div class="border-r  border-x-black">
-			{#if $siteLayout.showActivityBar}
-				<ActivityBar />
-			{/if}
+			<ActivityBar />
 		</div>
 
 		<div class="border-r border-x-black">
-			<PrimaryBar />
+			{#if $siteLayout.showPrimaryBar}
+				<PrimaryBar />
+			{/if}
 		</div>
 		<div class="flex-grow flex flex-col dark:bg-black-light">
 			<div class="flex-grow flex">

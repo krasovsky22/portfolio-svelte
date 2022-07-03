@@ -11,12 +11,12 @@
 	} from '@components/icons';
 
 	import { info } from '@stores/info';
-	import { fly } from 'svelte/transition';
 
 	type ActivityBarItemType = {
 		title: string;
 		icon: any;
 		url?: string;
+        active?: boolean
 	};
 	const activityBarItems: ActivityBarItemType[] = [
 		{
@@ -61,10 +61,10 @@
 	];
 </script>
 
-<div class="w-12 flex flex-col h-full align-top" transition:fly={{ x: -30 }}>
+<div class="w-12 flex flex-col h-full align-top">
 	<ul class="w-full flex flex-col justify-start flex-grow">
 		{#each activityBarItems as { title, icon, url }}
-			<li class="mx-auto p-2 cursor-pointer hover:text-primary">
+			<li class="mx-auto p-2 cursor-pointer hover:text-primary border-l-primary hover:border-l-2">
 				<div class="flex items-center" {title}>
 					{#if url}
 						<a href={url} target="_blank" {title}>
@@ -80,7 +80,7 @@
 
 	<ul class="w-full flex flex-col justify-center self-end">
 		{#each activityBarBottomItems as { title, icon }}
-			<li class="mx-auto p-2 cursor-pointer hover:text-primary">
+			<li class="mx-auto p-2 cursor-pointer hover:text-primary border-l-primary hover:border-l-2">
 				<div class="flex items-center" {title}>
 					<svelte:component this={icon} size={36} />
 				</div>
