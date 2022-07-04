@@ -11,12 +11,13 @@
 	} from '@components/icons';
 
 	import { info } from '@stores/info';
+	import { siteLayout } from '@stores/site-layout';
 
 	type ActivityBarItemType = {
 		title: string;
 		icon: any;
 		url?: string;
-        active?: boolean
+		active?: boolean;
 	};
 	const activityBarItems: ActivityBarItemType[] = [
 		{
@@ -59,19 +60,27 @@
 			icon: GearIcon
 		}
 	];
+
+	console.log($siteLayout.activeActivityBarTab);
 </script>
 
 <div class="w-12 flex flex-col h-full align-top">
 	<ul class="w-full flex flex-col justify-start flex-grow">
 		{#each activityBarItems as { title, icon, url }}
-			<li class="mx-auto p-2 cursor-pointer hover:text-primary border-l-primary hover:border-l-2">
+			<li
+				class="mx-auto p-2 cursor-pointer hover:text-primary border-l-primary hover:border-l-2"
+				class:border-l-2={$siteLayout.activeActivityBarTab === title}
+				class:text-primary={$siteLayout.activeActivityBarTab === title}
+			>
 				<div class="flex items-center" {title}>
 					{#if url}
 						<a href={url} target="_blank" {title}>
 							<svelte:component this={icon} size={36} />
 						</a>
 					{:else}
-						<svelte:component this={icon} size={36} />
+						<div on:click={() => ($siteLayout.activeActivityBarTab = title)}>
+							<svelte:component this={icon} size={36} />
+						</div>
 					{/if}
 				</div>
 			</li>

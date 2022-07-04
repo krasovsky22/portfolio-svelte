@@ -1,19 +1,19 @@
 <script lang="ts">
-    import { onMount } from 'svelte'
-    import Documents from './Documents.svelte';
+	import { onMount } from 'svelte';
+	import Documents from './Documents.svelte';
 
-    let commandInput;
+	let commandInput: HTMLDivElement;
 
 	type INSERTED_COMMAND = {
 		hasWorkstation: boolean;
 		text: string;
-        container?: any
+		container?: any;
 	};
 	let consoleInsertedCommands: INSERTED_COMMAND[] = [];
 
-    onMount(() => {
-        commandInput.focus();
-    })
+	onMount(() => {
+		commandInput.focus();
+	});
 
 	const handleInsertedCommand = (command: string) => {
 		if (command.startsWith('cd')) {
@@ -24,36 +24,36 @@
 					text: 'cd: no such file or directory: ' + command.replace('cd', '').trim()
 				}
 			];
-            return;
+			return;
 		}
 
-        if(command.startsWith('ls')) {
-            consoleInsertedCommands = [
+		if (command.startsWith('ls')) {
+			consoleInsertedCommands = [
 				...consoleInsertedCommands,
 				{
 					hasWorkstation: false,
 					text: '',
-                    container: Documents
+					container: Documents
 				}
 			];
-            return;
-        }
+			return;
+		}
 
-        if(command.startsWith('clear')) {
-            consoleInsertedCommands = [];
-            return;
-        }
+		if (command.startsWith('clear')) {
+			consoleInsertedCommands = [];
+			return;
+		}
 
-        consoleInsertedCommands = [
-				...consoleInsertedCommands,
-				{
-					hasWorkstation: false,
-					text: 'zsh: command not found: ' + command.trim(),
-				}
-			];
+		consoleInsertedCommands = [
+			...consoleInsertedCommands,
+			{
+				hasWorkstation: false,
+				text: 'zsh: command not found: ' + command.trim()
+			}
+		];
 	};
 
-	const handleKeyup = (event: any) => {
+	const handleKeyUp = (event: any) => {
 		if (event.code == 'Enter') {
 			event.preventDefault();
 			const value = event?.target?.textContent ?? '';
@@ -72,9 +72,9 @@
 				<div>vladkrasovsky@workstation portfolio-svelte</div>
 				<div>%</div>
 			{/if}
-            {#if container}
-                <svelte:component this={container} />
-            {/if}
+			{#if container}
+				<svelte:component this={container} />
+			{/if}
 			<div>{text}</div>
 		</div>
 	{/each}
@@ -85,8 +85,8 @@
 			<div
 				contenteditable="true"
 				class="w-full bg-transparent border-none outline-none"
-                bind:this={commandInput}
-				on:keydown={handleKeyup}
+				bind:this={commandInput}
+				on:keydown={handleKeyUp}
 			/>
 		</div>
 	</div>
