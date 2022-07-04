@@ -5,20 +5,23 @@
 	import { activePage } from '@stores/routing';
 	import { SidebarIcon, BottombarIcon, RightbarIcon } from '@components/icons';
 
-	const layoutNavigationActions = [
+	$: layoutNavigationActions = [
 		{
 			title: 'Toggle Primary Bar',
 			icon: SidebarIcon,
+            active: $siteLayout.showPrimaryBar,
 			action: () => ($siteLayout.showPrimaryBar = !$siteLayout.showPrimaryBar)
 		},
 		{
 			title: 'Toggle Panel',
 			icon: BottombarIcon,
+            active: $siteLayout.showConsoleBar,
 			action: () => {$siteLayout.showConsoleBar = !$siteLayout.showConsoleBar}
 		},
 		{
 			title: 'Toggle Secondary Side Bar',
 			icon: RightbarIcon,
+            active: $siteLayout.showRightBar,
 			action: () => {$siteLayout.showRightBar = !$siteLayout.showRightBar}
 		}
 	];
@@ -35,8 +38,8 @@
 			<h4>{$activePage?.display} - portfolio-svelte</h4>
 		</div>
 		<ul class="flex h-full items-center">
-			{#each layoutNavigationActions as { title, icon, action }}
-				<li class="cursor-pointer hover:text-blue-500 h-full flex py-1">
+			{#each layoutNavigationActions as { title, icon, action, active }}
+				<li class="cursor-pointer hover:text-blue-500 h-full flex py-1" class:text-blue-500={active}>
 					<div class="flex items-center" {title} on:click={action}>
 						<svelte:component this={icon} />
 					</div>
