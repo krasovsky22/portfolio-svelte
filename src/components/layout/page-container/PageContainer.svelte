@@ -6,7 +6,9 @@
 
 <div class="flex flex-col flex-grow">
 	<TopPagesTabs />
-	<slot />
+	<div class="flex-grow">
+		<slot />
+	</div>
 	{#if $siteLayout.showConsoleBar}
 		<ConsoleContainer />
 	{/if}

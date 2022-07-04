@@ -32,7 +32,7 @@
 	<meta name="description" content="Vlad Krasovsky Portfolio" />
 </svelte:head>
 
-<section class="relative flex-grow section-image flex items-center">
+<section class="relative section-image flex items-center h-full">
 	<div class="ml-[15%] flex flex-col gap-6 h-1/3">
 		<div class="text-6xl"><h1>Vlad Krasovsky</h1></div>
 		<div class="text-2xl flex gap-1 items-center">
