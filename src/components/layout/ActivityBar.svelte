@@ -60,8 +60,6 @@
 			icon: GearIcon
 		}
 	];
-
-	console.log($siteLayout.activeActivityBarTab);
 </script>
 
 <div class="w-12 flex flex-col h-full align-top">

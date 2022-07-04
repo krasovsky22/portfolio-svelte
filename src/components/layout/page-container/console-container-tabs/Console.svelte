@@ -15,7 +15,7 @@
 		commandInput.focus();
 	});
 
-	const handleInsertedCommand = (command: string) => {
+	const handleInsertedCommand = async (command: string) => {
 		if (command.startsWith('cd')) {
 			consoleInsertedCommands = [
 				...consoleInsertedCommands,
@@ -41,6 +41,33 @@
 
 		if (command.startsWith('clear')) {
 			consoleInsertedCommands = [];
+			return;
+		}
+
+		if (command.startsWith('cat')) {
+			const response = await fetch(
+				`https://raw.githubusercontent.com/krasovsky22/portfolio-svelte/master/${command
+					.replace('cat', '')
+					.trim()}`
+			);
+			let text = '';
+
+			if (command.includes('.json')) {
+				text = await response.json();
+				if (typeof text === 'object') {
+					text = JSON.stringify(text, null, 4);
+				}
+			} else {
+				text = await response.text();
+			}
+
+			consoleInsertedCommands = [
+				...consoleInsertedCommands,
+				{
+					hasWorkstation: false,
+					text
+				}
+			];
 			return;
 		}
 
