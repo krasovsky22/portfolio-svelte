@@ -1,7 +1,7 @@
 {
 	"name": "portfolio-svelte",
 	"version": "0.0.1",
-    "private": true,
+	"private": true,
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -37,6 +37,8 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/fira-mono": "^4.5.0",
-		"cookie": "^0.4.1"
+		"cookie": "^0.4.1",
+		"svelte-modals": "^1.2.0",
+		"svelte-youtube": "^0.0.2"
 	}
 }

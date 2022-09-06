@@ -17,8 +17,9 @@ type ROUTE_TYPE = {
 
 export enum POSSIBLE_ROUTES {
 	INDEX = '/',
+    WORKS = '/works',
 	ABOUTME = '/about',
-	SOCIAL = '/social'
+	SOCIAL = '/social',
 }
 
 const documents: DOCUMENT_TYPE[] = [
@@ -39,6 +40,12 @@ const documents: DOCUMENT_TYPE[] = [
 		icon: BracketsIcon,
 		display: 'Social.json',
 		url: POSSIBLE_ROUTES.SOCIAL
+	},
+    {
+        isActive: false,
+		icon: SvelteIcon,
+		display: 'Works.svelte',
+		url: POSSIBLE_ROUTES.WORKS
 	}
 ];
 

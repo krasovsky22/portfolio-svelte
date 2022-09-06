@@ -4,12 +4,17 @@
 
 <script lang="ts">
 	import '../app.css';
+	import { Modals } from 'svelte-modals';
 	import { siteLayout } from '@stores/site-layout';
 	import Footer from '@/components/layout/Footer.svelte';
 	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
 	import PageContainer from '@/components/layout/page-container/PageContainer.svelte';
-import RightBar from '@/components/layout/RightBar.svelte';
+	import RightBar from '@/components/layout/RightBar.svelte';
 </script>
+
+<Modals>
+	<div slot="backdrop" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+</Modals>
 
 <main class="flex flex-grow flex-col">
 	<TitleBar />
@@ -31,7 +36,7 @@ import RightBar from '@/components/layout/RightBar.svelte';
 			</div>
 			<Footer />
 		</div>
-        <div class="border-r border-x-black">
+		<div class="border-r border-x-black">
 			{#if $siteLayout.showRightBar}
 				<RightBar />
 			{/if}
