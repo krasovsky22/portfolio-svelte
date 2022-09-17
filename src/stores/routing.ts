@@ -41,12 +41,12 @@ const documents: DOCUMENT_TYPE[] = [
 		display: 'Social.json',
 		url: POSSIBLE_ROUTES.SOCIAL
 	},
-    {
-        isActive: false,
-		icon: SvelteIcon,
-		display: 'Works.svelte',
-		url: POSSIBLE_ROUTES.WORKS
-	}
+    // {
+    //     isActive: false,
+	// 	icon: SvelteIcon,
+	// 	display: 'Works.svelte',
+	// 	url: POSSIBLE_ROUTES.WORKS
+	// }
 ];
 
 export const Routes: Record<POSSIBLE_ROUTES | string, ROUTE_TYPE> = {
