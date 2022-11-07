@@ -3,6 +3,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { typeWriterTransition } from '@utils/transitions';
 	import { AwsSolutionArchitectBadge } from '@components/badges';
+	import MetaFrontEndDeveloper from '@/components/badges/MetaFrontEndDeveloper.svelte';
 
 	let visible = false;
 	let animationFinished = false;
@@ -37,14 +38,21 @@
 		<div class="text-6xl"><h1>Vlad Krasovsky</h1></div>
 		<div class="text-2xl flex gap-1 items-center">
 			{#if visible}
-				<h2 in:typeWriterTransition on:introend={createFlashing}>Full Stack Software Developer</h2>
+				<h2 in:typeWriterTransition={{ speed: 1 }} on:introend={createFlashing}>
+					Full Stack Software Developer
+				</h2>
 			{/if}
 			{#if animationFinished}
 				<p transition:fade={{ duration: DURATION / 2 }} class="text-orange-200">|</p>
 			{/if}
 		</div>
 
-		<AwsSolutionArchitectBadge />
+		<div class="flex flex-col gap-1 h-1/2">
+			<div class="flex h-full">
+				<AwsSolutionArchitectBadge />
+                <MetaFrontEndDeveloper />
+			</div>
+		</div>
 	</div>
 </section>
 

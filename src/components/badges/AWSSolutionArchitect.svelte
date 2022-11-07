@@ -1,16 +1,11 @@
 <script lang="ts">
-	export let width: number = 75;
+    import HoverableCard from '@/components/layout/HoverableCard.svelte';
+
+    const URL = 'https://www.credly.com/badges/32ec4269-6de1-40cf-87e2-7a8983182b38/public_url';
+
+    const handleOnClick = () => {
+        window.open(URL, '_blank');
+    }
 </script>
 
-<div class="w-fit">
-	<a
-		href="https://www.credly.com/badges/32ec4269-6de1-40cf-87e2-7a8983182b38/public_url"
-		target="_blank"
-		rel="noopener noreferrer"
-		><img
-			src="/aws-certified-solutions-architect-associate.png"
-			width={`${width}px`}
-			alt="AWS Certified Solutions Architect Associate"
-		/></a
-	>
-</div>
+<HoverableCard imageUrl="/aws-certified-solutions-architect-associate.png" onClickEvent={handleOnClick} />
