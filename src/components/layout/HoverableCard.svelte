@@ -26,7 +26,7 @@
 				transition:fade
 			>
 				<div
-					class="max-height-60 flex flex-col w-1/2 h-1/2  items-center justify-center p-1 rounded-full bg-primary-light text-black-light text-center"
+					class="max-height-60 flex flex-col w-1/2 h-1/2 opacity-80 items-center justify-center p-1 rounded-full bg-primary-light text-black-light text-center"
 				>
 					<p class="text-fit">
 						<slot>View</slot>
