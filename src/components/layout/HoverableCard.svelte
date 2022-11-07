@@ -26,11 +26,11 @@
 				transition:fade
 			>
 				<div
-					class="test flex flex-col w-1/2 h-1/2  items-center justify-center p-1 rounded-full bg-primary-light text-black-light text-center"
+					class="max-height-60 flex flex-col w-1/2 h-1/2  items-center justify-center p-1 rounded-full bg-primary-light text-black-light text-center"
 				>
-					<slot>
-						<p>View</p>
-					</slot>
+					<p class="text-fit">
+						<slot>View</slot>
+					</p>
 				</div>
 			</div>
 		{/if}
@@ -43,8 +43,12 @@
 		transition-duration: 500ms;
 	}
 
-    .test{
-        max-height: 60%;
-        max-width: 60%;
-    }
+	.max-height-60 {
+		max-height: 60%;
+		max-width: 60%;
+	}
+
+    .text-fit {
+        font-size: 0.7rem;
+	}
 </style>
