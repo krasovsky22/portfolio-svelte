@@ -10,36 +10,49 @@
 	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
 	import PageContainer from '@/components/layout/page-container/PageContainer.svelte';
 	import RightBar from '@/components/layout/RightBar.svelte';
+	import MediaQuery from '@/components/MediaQuery.svelte';
 </script>
 
 <Modals>
 	<div slot="backdrop" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
 </Modals>
 
-<main class="flex flex-grow flex-col">
-	<TitleBar />
-	<div class="flex min-h-full flex-grow w-full">
-		<div class="border-r  border-x-black">
-			<ActivityBar />
+<MediaQuery query="(max-width: 1279px)" let:matches>
+	{#if matches}
+		<div class="flex flex-col mt-4 justify-center items-center w-full text-center">
+			<div class="my-auto"><h1>No Mobile Version Available Yet</h1></div>
 		</div>
+	{/if}
+</MediaQuery>
 
-		<div class="border-r border-x-black">
-			{#if $siteLayout.showPrimaryBar}
-				<PrimaryBar />
-			{/if}
-		</div>
-		<div class="flex-grow flex flex-col dark:bg-black-light">
-			<div class="flex-grow flex">
-				<PageContainer>
-					<slot />
-				</PageContainer>
+<MediaQuery query="(min-width: 1280px)" let:matches>
+	{#if matches}
+		<main class="flex flex-grow flex-col">
+			<TitleBar />
+			<div class="flex min-h-full flex-grow w-full">
+				<div class="border-r  border-x-black">
+					<ActivityBar />
+				</div>
+
+				<div class="border-r border-x-black">
+					{#if $siteLayout.showPrimaryBar}
+						<PrimaryBar />
+					{/if}
+				</div>
+				<div class="flex-grow flex flex-col dark:bg-black-light">
+					<div class="flex-grow flex">
+						<PageContainer>
+							<slot />
+						</PageContainer>
+					</div>
+					<Footer />
+				</div>
+				<div class="border-r border-x-black">
+					{#if $siteLayout.showRightBar}
+						<RightBar />
+					{/if}
+				</div>
 			</div>
-			<Footer />
-		</div>
-		<div class="border-r border-x-black">
-			{#if $siteLayout.showRightBar}
-				<RightBar />
-			{/if}
-		</div>
-	</div>
-</main>
+		</main>
+	{/if}
+</MediaQuery>
