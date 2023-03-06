@@ -2,16 +2,14 @@
 	import HoverableCard from '@/components/layout/HoverableCard.svelte';
 
 	const URL =
-		'https://www.credly.com/org/facebook-blueprint/badge/meta-front-end-developer-certificate';
+		'https://coursera.org/share/0ccf462fc2892851ab48d92c42283b06';
 
 	const handleOnClick = () => {
 		window.open(URL, '_blank');
 	};
 </script>
 
-<HoverableCard imageUrl="/meta-front-end-developer.png" onClickEvent={handleOnClick}>
-	In Progress
-</HoverableCard>
+<HoverableCard imageUrl="/meta-front-end-developer.png" onClickEvent={handleOnClick} />
 
 <style>
 	.text-fit {
