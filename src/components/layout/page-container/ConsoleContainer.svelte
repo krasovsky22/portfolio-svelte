@@ -35,7 +35,7 @@
 </script>
 
 <div
-	class="border-y border-black-lighter h-1/5 flex flex-col gap-2 px-1 pl-3 text-xs text-black-lighter overflow-auto"
+	class="border-y border-black-lighter h-1/5 min-h-[100px] flex flex-col gap-2 px-1 pl-3 text-xs text-black-lighter overflow-auto"
 >
 	<div class="flex flex-row justify-between">
 		<div class="flex flex-row flex-grow gap-3 items-center">
