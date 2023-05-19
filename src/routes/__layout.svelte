@@ -30,7 +30,7 @@
 		<main class="flex flex-grow flex-col">
 			<TitleBar />
 			<div class="flex min-h-full flex-grow w-full">
-				<div class="border-r  border-x-black">
+				<div class="border-r border-x-black">
 					<ActivityBar />
 				</div>
 

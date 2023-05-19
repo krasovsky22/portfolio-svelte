@@ -66,18 +66,19 @@
 	<ul class="w-full flex flex-col justify-start flex-grow">
 		{#each activityBarItems as { title, icon, url }}
 			<li
-				class="mx-auto p-2 cursor-pointer hover:text-primary border-l-primary hover:border-l-2"
-				class:border-l-2={$siteLayout.activeActivityBarTab === title}
+                class="mx-auto p-2 pr-3 cursor-pointer border-l-2 hover:text-primary hover:border-l-primary"
+                class:border-l-primary={$siteLayout.activeActivityBarTab === title}
+                class:border-l-transparent={$siteLayout.activeActivityBarTab !== title}
 				class:text-primary={$siteLayout.activeActivityBarTab === title}
 			>
 				<div class="flex items-center" {title}>
 					{#if url}
 						<a href={url} target="_blank" {title}>
-							<svelte:component this={icon} size={36} />
+							<svelte:component this={icon} size={32} />
 						</a>
 					{:else}
 						<div on:click={() => ($siteLayout.activeActivityBarTab = title)}>
-							<svelte:component this={icon} size={36} />
+							<svelte:component this={icon} size={32} />
 						</div>
 					{/if}
 				</div>
@@ -89,7 +90,7 @@
 		{#each activityBarBottomItems as { title, icon }}
 			<li class="mx-auto p-2 cursor-pointer hover:text-primary border-l-primary hover:border-l-2">
 				<div class="flex items-center" {title}>
-					<svelte:component this={icon} size={36} />
+					<svelte:component this={icon} size={32} />
 				</div>
 			</li>
 		{/each}
