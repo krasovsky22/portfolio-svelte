@@ -2,14 +2,16 @@
 	import { fade } from 'svelte/transition';
 	import { Hoverable } from '@components/shared';
 	import { openModal } from 'svelte-modals';
-	import CertificateModal from '../modals/CertificateModal.svelte';
+	// import CertificateModal from '../modals/CertificateModal.svelte';
 
-	function handleClick() {
-		openModal(CertificateModal);
-	}
+	// function handleClick() {
+	// 	openModal(CertificateModal);
+	// }
+
+    type OnClickEventType = () => void
 
 	export let imageUrl: string;
-	export let onClickEvent: () => void = handleClick;
+	export let onClickEvent: OnClickEventType | null = null;
 </script>
 
 <Hoverable let:hovering={hovered}>
@@ -20,7 +22,7 @@
 		on:click={onClickEvent}
 	>
 		<img src={imageUrl} alt="text-project" class:zoom={hovered} class="h-full" />
-		{#if hovered}
+		{#if hovered && onClickEvent}
 			<div
 				class="absolute w-full h-full inset-0 flex flex-col justify-center items-center"
 				transition:fade

@@ -2,8 +2,9 @@
 	import { fade } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
 	import { typeWriterTransition } from '@utils/transitions';
-	import { AwsSolutionArchitectBadge } from '@components/badges';
-	import MetaFrontEndDeveloper from '@/components/badges/MetaFrontEndDeveloper.svelte';
+	import { AwsSolutionArchitectBadge, AzureSolutionArchitectBadge, MetaFrontEndDeveloperBadge, GoogleSolutionArchitectBadge } from '@components/badges';
+	// import MetaFrontEndDeveloper from '@components/badges/MetaFrontEndDeveloper.svelte';
+	// import AzureSolutionArchitect from '@components/badges/AzureSolutionArchitect.svelte';
 
 	let visible = false;
 	let animationFinished = false;
@@ -47,10 +48,13 @@
 			{/if}
 		</div>
 
-		<div class="flex flex-col gap-1 h-1/2">
-			<div class="flex h-full">
+		<div class="flex flex-col gap-1 ">
+			<div class="flex h-full  h-[15vh]">
 				<AwsSolutionArchitectBadge />
-                <MetaFrontEndDeveloper />
+                <AzureSolutionArchitectBadge />
+                <GoogleSolutionArchitectBadge />
+                <MetaFrontEndDeveloperBadge />
+                
 			</div>
 		</div>
 	</div>
