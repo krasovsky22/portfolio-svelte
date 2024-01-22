@@ -4,7 +4,8 @@
 
 @layer base {
 	:root {
-		--color-main-bg: #252526;
+		--dark-color-main-bg: #252526;
+        --white-color-main-bg: #ffffff
 	}
 }
 
@@ -25,7 +26,12 @@ body {
 	display: flex;
 	flex-direction: column;
 
-	background-color: var(--color-main-bg);
+	background-color: var(--white-color-main-bg);
+	color: black;
+}
+
+.dark body {
+    background-color: var(--dark-color-main-bg);
 	color: #ccc;
 }
 

@@ -3,18 +3,28 @@
 </script>
 
 <script lang="ts">
+    import { onMount } from 'svelte';
 	import '../app.css';
-	import { Modals } from 'svelte-modals';
+	import { Modals, closeModal  } from 'svelte-modals';
 	import { siteLayout } from '@stores/site-layout';
 	import Footer from '@/components/layout/Footer.svelte';
 	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
 	import PageContainer from '@/components/layout/page-container/PageContainer.svelte';
 	import RightBar from '@/components/layout/RightBar.svelte';
 	import MediaQuery from '@/components/MediaQuery.svelte';
+
+    onMount(() => {
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && (window.matchMedia('(prefers-color-scheme: dark)')?.matches ?? true))) {
+            $siteLayout.darkMode = true;
+        } else {
+            $siteLayout.darkMode = false;
+        }
+    })
 </script>
 
 <Modals>
-	<div slot="backdrop" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+	<div slot="backdrop" class="z-10 fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" on:click={closeModal}/>
 </Modals>
 
 <MediaQuery query="(max-width: 1279px)" let:matches>

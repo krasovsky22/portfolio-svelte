@@ -17,7 +17,7 @@
 				<div
 					slot="header"
 					let:collapsed
-					class="py-0.5 px-1 uppercase border-black-lighter border text-black-lighter bg-black-light flex items-center space-between cursor-pointer"
+					class="py-0.5 px-1 uppercase border-black-lighter border text-black-lighter bg-light dark:bg-black-light flex items-center space-between cursor-pointer"
 				>
 					<div class="flex gap-3 flex-grow items-center">
 						<ArrowIcon size={18} rotate={collapsed ? 0 : 1} />

@@ -10,9 +10,3 @@
 </script>
 
 <HoverableCard imageUrl="/meta-front-end-developer.png" onClickEvent={handleOnClick} />
-
-<style>
-	.text-fit {
-		font-size: 0.7%;
-	}
-</style>
