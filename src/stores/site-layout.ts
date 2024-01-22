@@ -1,3 +1,4 @@
+import { browser } from '$app/env';
 import { writable } from 'svelte/store';
 
 export const siteLayout = writable({
@@ -9,10 +10,30 @@ export const siteLayout = writable({
 });
 
 siteLayout.subscribe(({darkMode}) => {
-	if(darkMode) {
-        document.documentElement.classList.add('dark');
+
+    if(! browser) {
+        return;
     }
-    else{
-         document.documentElement.classList.remove('dark');
-    }
-}); // logs '0'
+
+	if (darkMode) {
+		document.documentElement.classList.add('dark');
+	} else {
+		document.documentElement.classList.remove('dark');
+	}
+});
+
+export const toggleDarkMode = () => {
+    siteLayout.update(store => {
+        if(store.darkMode) {
+            localStorage.theme = 'light';
+        }
+        else{
+            localStorage.theme = 'dark';
+        }
+
+        return {
+            ...store,
+            darkMode: !store.darkMode
+        }
+    })
+}

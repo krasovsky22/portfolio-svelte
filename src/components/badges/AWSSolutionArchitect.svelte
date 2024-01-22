@@ -8,4 +8,4 @@
     }
 </script>
 
-<HoverableCard imageUrl="/aws-certified-solutions-architect-associate.png" onClickEvent={handleOnClick} />
+<HoverableCard imageUrl="/badges/aws-certified-solutions-architect-associate.png" onClickEvent={handleOnClick} />

@@ -54,7 +54,6 @@
                 <AzureSolutionArchitectBadge />
                 <GoogleSolutionArchitectBadge />
                 <MetaFrontEndDeveloperBadge />
-                
 			</div>
 		</div>
 	</div>

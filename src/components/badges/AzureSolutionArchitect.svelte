@@ -8,4 +8,4 @@
     // }
 </script>
 
-<HoverableCard imageUrl="/azure-solutions-architect-expert.png" />
+<HoverableCard imageUrl="/badges/azure-solutions-architect-expert.png" />

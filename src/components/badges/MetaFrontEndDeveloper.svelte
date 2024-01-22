@@ -9,4 +9,4 @@
 	};
 </script>
 
-<HoverableCard imageUrl="/meta-front-end-developer.png" onClickEvent={handleOnClick} />
+<HoverableCard imageUrl="/badges/meta-front-end-developer.png" onClickEvent={handleOnClick} />

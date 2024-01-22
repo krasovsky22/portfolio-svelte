@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let onClick: () => {};
+	export let onClick: () => void;
 	export let checked: boolean = false;
 </script>
 
