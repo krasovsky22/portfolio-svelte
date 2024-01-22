@@ -2,9 +2,16 @@
 	import { fade } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
 	import { typeWriterTransition } from '@utils/transitions';
-	import { AwsSolutionArchitectBadge, AzureSolutionArchitectBadge, MetaFrontEndDeveloperBadge, GoogleSolutionArchitectBadge } from '@components/badges';
-	// import MetaFrontEndDeveloper from '@components/badges/MetaFrontEndDeveloper.svelte';
-	// import AzureSolutionArchitect from '@components/badges/AzureSolutionArchitect.svelte';
+	import {
+		GoBadge,
+		PHPBadge,
+		PythonBadge,
+		NodeJsBadge,
+		AwsSolutionArchitectBadge,
+		MetaFrontEndDeveloperBadge,
+		AzureSolutionArchitectBadge,
+		GoogleSolutionArchitectBadge,
+	} from '@components/badges';
 
 	let visible = false;
 	let animationFinished = false;
@@ -48,12 +55,18 @@
 			{/if}
 		</div>
 
-		<div class="flex flex-col gap-1 ">
+		<div class="flex flex-col gap-10">
 			<div class="flex h-full  h-[15vh]">
 				<AwsSolutionArchitectBadge />
-                <AzureSolutionArchitectBadge />
-                <GoogleSolutionArchitectBadge />
-                <MetaFrontEndDeveloperBadge />
+				<AzureSolutionArchitectBadge />
+				<GoogleSolutionArchitectBadge />
+				<MetaFrontEndDeveloperBadge />
+			</div>
+			<div class="flex h-full  h-[10vh]">
+				<NodeJsBadge />
+				<PHPBadge />
+				<GoBadge />
+				<PythonBadge />
 			</div>
 		</div>
 	</div>
