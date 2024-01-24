@@ -34,7 +34,7 @@
 		<Dot class="bg-green-500" />
 	</div>
 	<div class="flex flex-grow items-center">
-		<div class="flex-grow text-gray-300">
+		<div class="flex-grow text-gray-800 dark:text-gray-300">
 			<h4>{$activePage?.display} - portfolio-svelte</h4>
 		</div>
 		<ul class="flex h-full items-center">

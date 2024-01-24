@@ -5,7 +5,7 @@ export const siteLayout = writable({
     showRightBar: false,
     showPrimaryBar: true,
     showConsoleBar: false,
-    darkMode: false,
+    darkMode: true,
     activeActivityBarTab: 'Explorer'
 });
 

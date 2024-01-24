@@ -15,9 +15,9 @@
 		<div
 			class="relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all pointer-events-auto"
 		>
-			<div class="bg-whiteMainBg dark:bg-gray-700 flex flex-col justify-center items-center ">
+			<div class="bg-gray-100 dark:bg-gray-700 flex flex-col justify-center items-center ">
 				<div class="flex gap-1 border-b w-full">
-					<div class="text-center flex-grow">{title}</div>
+					<div class="bg-gray-200 dark:bg-gray-700 text-center flex-grow">{title}</div>
 					<div
 						class="cursor-pointer hover:bg-black-lighter hover:text-gray-200 absolute top-0 right-0"
 						on:click={closeModal}
