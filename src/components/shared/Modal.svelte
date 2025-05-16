@@ -1,9 +1,14 @@
 <script lang="ts">
-	import { closeModal } from 'svelte-modals';
 	import { XIcon } from '@/components/icons';
 
-	export let isOpen: boolean;
-	export let title: string = '';
+	interface Props {
+		isOpen: boolean;
+		title?: string;
+        close: () => void;
+		children?: import('svelte').Snippet;
+	}
+
+	let { isOpen, close, title = '', children }: Props = $props();
 </script>
 
 {#if isOpen}
@@ -20,14 +25,14 @@
 					<div class="bg-gray-200 dark:bg-gray-700 text-center flex-grow">{title}</div>
 					<div
 						class="cursor-pointer hover:bg-black-lighter hover:text-gray-200 absolute top-0 right-0"
-						on:click={closeModal}
+						onclick={close}
 					>
 						<XIcon />
 					</div>
 				</div>
 
 				<div class="p-5 w-full">
-					<slot />
+					{@render children?.()}
 				</div>
 			</div>
 		</div>

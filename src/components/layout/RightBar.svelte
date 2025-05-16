@@ -7,7 +7,7 @@
 	<div class="flex w-full">
 		<div
 			class="ml-auto cursor-pointer hover:bg-black-lighter"
-			on:click={() => ($siteLayout.showRightBar = !$siteLayout.showRightBar)}
+			onclick={() => ($siteLayout.showRightBar = !$siteLayout.showRightBar)}
 		>
 			<XIcon />
 		</div>

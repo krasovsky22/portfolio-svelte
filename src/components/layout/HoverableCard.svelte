@@ -1,42 +1,48 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { Hoverable } from '@components/shared';
-	import { openModal } from 'svelte-modals';
-	// import CertificateModal from '../modals/CertificateModal.svelte';
-
-	// function handleClick() {
-	// 	openModal(CertificateModal);
-	// }
 
     type OnClickEventType = () => void
 
-	export let imageUrl: string;
-	export let onClickEvent: OnClickEventType | null = null;
+	interface Props {
+		imageUrl: string;
+		onClickEvent?: OnClickEventType | null;
+		children?: import('svelte').Snippet;
+	}
+
+	let { imageUrl, onClickEvent = null, children }: Props = $props();
+
+	const children_render = $derived(children);
 </script>
 
-<Hoverable let:hovering={hovered}>
-	<div
-		class={`opacity-${
-			hovered ? 100 : 40
-		} cursor-pointer flex flex-col relative overflow-hidden h-full p-2`}
-		on:click={onClickEvent}
-	>
-		<img src={imageUrl} alt="text-project" class:zoom={hovered} class="h-full" />
-		{#if hovered && onClickEvent}
-			<div
-				class="absolute w-full h-full inset-0 flex flex-col justify-center items-center"
-				transition:fade
-			>
+<Hoverable >
+	{#snippet children({ hovering: hovered })}
+		<button
+			type="button"
+			class={`opacity-${
+				hovered ? 100 : 40
+			} cursor-pointer flex flex-col relative overflow-hidden h-full p-2 border-none bg-transparent`}
+			on:click={onClickEvent}
+			on:keydown={(e) => e.key === 'Enter' && onClickEvent?.()}
+			aria-label="View image details"
+		>
+			<img src={imageUrl} alt="text-project" class:zoom={hovered} class="h-full" />
+			{#if hovered && onClickEvent}
 				<div
-					class="max-height-60 flex flex-col w-1/4 h-1/4 opacity-80 items-center justify-center p-1 rounded-full bg-primary-light text-black-light text-center"
+					class="absolute w-full h-full inset-0 flex flex-col justify-center items-center"
+					transition:fade|global
 				>
-					<p class="text-fit">
-						<slot>View</slot>
-					</p>
+					<div
+						class="max-height-60 flex flex-col w-1/4 h-1/4 opacity-80 items-center justify-center p-1 rounded-full bg-primary-light text-black-light text-center"
+					>
+						<p class="text-fit">
+							{#if children_render}{@render children_render()}{:else}View{/if}
+						</p>
+					</div>
 				</div>
-			</div>
-		{/if}
-	</div>
+			{/if}
+		</button>
+	{/snippet}
 </Hoverable>
 
 <style>

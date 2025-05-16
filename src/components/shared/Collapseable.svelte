@@ -2,11 +2,24 @@
 	import { slide } from 'svelte/transition';
 	import { ArrowIcon } from '@components/icons';
 
-	export let title = 'Missing Title';
-	export let headClass = '';
-    export let depth = 0;
 
-	export let collapsed: boolean = false;
+	interface Props {
+		title?: string;
+		headClass?: string;
+		depth?: number;
+		collapsed?: boolean;
+		header?: import('svelte').Snippet<[any]>;
+		body?: import('svelte').Snippet<[any]>;
+	}
+
+	let {
+		title = 'Missing Title',
+		headClass = '',
+		depth = 0,
+		collapsed = $bindable(false),
+		header,
+		body
+	}: Props = $props();
 
 	function toggle() {
 		collapsed = !collapsed;
@@ -14,19 +27,19 @@
 </script>
 
 <div class="w-full">
-	<div on:click={toggle}>
-		<slot name="header" {collapsed}>
+	<div onclick={toggle}>
+		{#if header}{@render header({ collapsed, })}{:else}
 			<div class={`flex gap-2 items-center w-full pl-${depth} ${headClass}`}>
 				<ArrowIcon size={18} rotate={collapsed ? 0 : 1} />
 				{title}
 			</div>
-		</slot>
+		{/if}
 	</div>
 	{#if !collapsed}
-		<div transition:slide>
-			<slot name="body" {collapsed}>
+		<div transition:slide|global>
+			{#if body}{@render body({ collapsed, })}{:else}
 				<div class={`pl-${depth}`}>Missing Body</div>
-			</slot>
+			{/if}
 		</div>
 	{/if}
 </div>

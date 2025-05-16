@@ -2,14 +2,14 @@
 	import { onMount } from 'svelte';
 	import Documents from './Documents.svelte';
 
-	let commandInput: HTMLDivElement;
+	let commandInput: HTMLDivElement = $state();
 
 	type INSERTED_COMMAND = {
 		hasWorkstation: boolean;
 		text: string;
 		container?: any;
 	};
-	let consoleInsertedCommands: INSERTED_COMMAND[] = [];
+	let consoleInsertedCommands: INSERTED_COMMAND[] = $state([]);
 
 	onMount(() => {
 		commandInput.focus();
@@ -100,7 +100,8 @@
 				<div>%</div>
 			{/if}
 			{#if container}
-				<svelte:component this={container} />
+				{@const SvelteComponent = container}
+				<SvelteComponent />
 			{/if}
 			<div>{text}</div>
 		</div>
@@ -113,8 +114,8 @@
 				contenteditable="true"
 				class="w-full bg-transparent border-none outline-none"
 				bind:this={commandInput}
-				on:keydown={handleKeyUp}
-			/>
+				onkeydown={handleKeyUp}
+			></div>
 		</div>
 	</div>
 </div>

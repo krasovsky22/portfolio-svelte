@@ -13,9 +13,9 @@
 		GoogleSolutionArchitectBadge,
 	} from '@components/badges';
 
-	let visible = false;
-	let animationFinished = false;
-	let interval: NodeJS.Timer;
+	let visible = $state(false);
+	let animationFinished = $state(false);
+	let interval: ReturnType<typeof setInterval>;
 
 	const DURATION = 500;
 
@@ -46,12 +46,12 @@
 		<div class="text-6xl text-white"><h1>Vlad Krasovsky</h1></div>
 		<div class="text-2xl flex gap-1 items-center text-primary-light">
 			{#if visible}
-				<h2 in:typeWriterTransition={{ speed: 1 }} on:introend={createFlashing}>
+				<h2 in:typeWriterTransition|global={{ speed: 1 }} onintroend={createFlashing}>
 					Full Stack Software Developer
 				</h2>
 			{/if}
 			{#if animationFinished}
-				<p transition:fade={{ duration: DURATION / 2 }} class="text-orange-200">|</p>
+				<p transition:fade|global={{ duration: DURATION / 2 }} class="text-orange-200">|</p>
 			{/if}
 		</div>
 
