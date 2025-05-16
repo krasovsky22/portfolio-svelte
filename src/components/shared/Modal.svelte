@@ -23,12 +23,14 @@
 			<div class="bg-gray-100 dark:bg-gray-700 flex flex-col justify-center items-center ">
 				<div class="flex gap-1 border-b w-full">
 					<div class="bg-gray-200 dark:bg-gray-700 text-center flex-grow">{title}</div>
-					<div
+					<button
+						type="button"
 						class="cursor-pointer hover:bg-black-lighter hover:text-gray-200 absolute top-0 right-0"
 						onclick={close}
+						aria-label="Close modal"
 					>
 						<XIcon />
-					</div>
+					</button>
 				</div>
 
 				<div class="p-5 w-full">

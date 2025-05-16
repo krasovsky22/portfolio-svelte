@@ -62,7 +62,7 @@
 		{
 			title: 'Manage',
 			icon: GearIcon,
-            onClick: () => modals.open(UserSettingsModal)
+			onClick: () => modals.open(UserSettingsModal)
 		}
 	];
 </script>
@@ -84,9 +84,9 @@
 						</a>
 					{:else}
 						{@const SvelteComponent_1 = icon}
-						<div onclick={() => ($siteLayout.activeActivityBarTab = title)}>
+						<button onclick={() => ($siteLayout.activeActivityBarTab = title)}>
 							<SvelteComponent_1 size={32} />
-						</div>
+						</button>
 					{/if}
 				</div>
 			</li>
@@ -97,9 +97,9 @@
 		{#each activityBarBottomItems as { title, icon, onClick }}
 			{@const SvelteComponent_2 = icon}
 			<li class="mx-auto p-2 cursor-pointer hover:text-primary border-l-primary hover:border-l-2">
-				<div class="flex items-center" {title} onclick={() => onClick && onClick()}>
-					<SvelteComponent_2 size={32} />
-				</div>
+				<button class="flex items-center" {title} onclick={() => onClick && onClick()}>
+					<SvelteComponent_2 />
+				</button>
 			</li>
 		{/each}
 	</ul>

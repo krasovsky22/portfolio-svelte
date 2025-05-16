@@ -29,9 +29,8 @@
 <Modals>
 	{#snippet backdrop({ close })}
 		<button
-			slot="backdrop"
 			type="button"
-			class="bg-opacity-75 fixed inset-0 z-10 w-full bg-gray-500 transition-opacity"
+			class="opacity-75 fixed inset-0 z-10 w-full bg-gray-500 transition-opacity"
 			aria-label="Close modal"
 			onclick={() => close()}
 		></button>
