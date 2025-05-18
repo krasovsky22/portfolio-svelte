@@ -26,7 +26,6 @@ bun.lockb
 .DS_Store
 *.pem
 .idea/
-.vscode/
 *.suo
 *.ntvs*
 *.njsproj
