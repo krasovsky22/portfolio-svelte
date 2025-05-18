@@ -1,6 +1,11 @@
 <script lang="ts">
-	let hovering: boolean = false;
-    export let classNames: string = "";
+	let hovering: boolean = $state(false);
+	interface Props {
+		classNames?: string;
+		children?: import('svelte').Snippet<[any]>;
+	}
+
+	let { classNames = "", children }: Props = $props();
 
 	function enter() {
 		hovering = true;
@@ -11,6 +16,6 @@
 	}
 </script>
 
-<div on:mouseenter={enter} on:mouseleave={leave} class={classNames}>
-	<slot {hovering} />
+<div onmouseenter={enter} onmouseleave={leave} class={classNames} role="button" tabindex="0">
+	{@render children?.({ hovering, })}
 </div>

@@ -1,8 +1,8 @@
-import { browser } from '$app/env';
+import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
 
 export const siteLayout = writable({
-    showRightBar: false,
+    showRightBar: true,
     showPrimaryBar: true,
     showConsoleBar: false,
     darkMode: true,

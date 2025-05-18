@@ -5,7 +5,7 @@
 	import { activePage } from '@stores/routing';
 	import { SidebarIcon, BottombarIcon, RightbarIcon } from '@components/icons';
 
-	$: layoutNavigationActions = [
+	let layoutNavigationActions = $derived([
 		{
 			title: 'Toggle Primary Bar',
 			icon: SidebarIcon,
@@ -24,7 +24,7 @@
             active: $siteLayout.showRightBar,
 			action: () => {$siteLayout.showRightBar = !$siteLayout.showRightBar}
 		}
-	];
+	]);
 </script>
 
 <div class="w-full h-8 flex text-center items-center border rounded-b-md border-black">
@@ -39,10 +39,11 @@
 		</div>
 		<ul class="flex h-full items-center">
 			{#each layoutNavigationActions as { title, icon, action, active }}
+				{@const SvelteComponent = icon}
 				<li class="cursor-pointer hover:text-blue-500 h-full flex py-1" class:text-blue-500={active}>
-					<div class="flex items-center" {title} on:click={action}>
-						<svelte:component this={icon} />
-					</div>
+					<button class="flex items-center" {title} onclick={action}>
+						<SvelteComponent />
+					</button>
 				</li>
 			{/each}
 		</ul>

@@ -1,9 +1,7 @@
-<script>
-	import Icon from '@iconify/svelte';
-	import { DEFAULT_ICON_SIZE } from './constants';
+<script lang="ts">
+	import Icon from './Icon.svelte';
 
-	export let size = DEFAULT_ICON_SIZE;
-    export let color = 'orange';
+	const { color = 'orange', ...rest } = $props();
 </script>
 
-<Icon icon="icon-park-outline:code-brackets" width={size} height={size} {color} {...$$restProps} />
+<Icon icon="icon-park-outline:code-brackets" {color} {...rest} />

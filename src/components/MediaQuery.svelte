@@ -1,13 +1,19 @@
 <!-- based on https://svelte.dev/repl/26eb44932920421da01e2e21539494cd?version=3.52.0 -->
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import type { Snippet } from 'svelte';
 
-	export let query: string;
+	interface Props {
+		query: string;
+		content: Snippet<[boolean]>;
+	}
+
+	let { query, content }: Props = $props();
 
 	let mql: MediaQueryList;
 	let mqlListener: (event: MediaQueryListEvent) => void;
-	let wasMounted = false;
-	let matches = false;
+	let wasMounted = $state(false);
+	let matches = $state(false);
 
 	onMount(() => {
 		wasMounted = true;
@@ -16,17 +22,9 @@
 		};
 	});
 
-	$: {
-		if (wasMounted) {
-			removeActiveListener();
-			addNewListener(query);
-		}
-	}
-
 	function addNewListener(query: string) {
 		mql = window.matchMedia(query);
 		mqlListener = (event) => {
-			console.log('aaa', event);
 			matches = event.matches;
 		};
 		mql.addEventListener('change', mqlListener);
@@ -38,6 +36,18 @@
 			mql.removeEventListener('change', mqlListener);
 		}
 	}
+	$effect(() => {
+		if (wasMounted) {
+			removeActiveListener();
+			addNewListener(query);
+		}
+	});
 </script>
 
-<slot {matches} />
+{#if matches}
+	{@render content(matches)}
+{:else}
+	<div class="mt-4 flex w-full flex-col items-center justify-center text-center">
+		<div class="my-auto"><h1>No Mobile Version Available Yet</h1></div>
+	</div>
+{/if}

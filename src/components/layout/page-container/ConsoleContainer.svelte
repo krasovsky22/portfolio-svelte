@@ -31,7 +31,9 @@
 		}
 	];
 
-	let activeTab = 0;
+	let activeTab = $state(0);
+
+	const SvelteComponent = $derived(consoleTabs[activeTab].component);
 </script>
 
 <div
@@ -40,25 +42,25 @@
 	<div class="flex flex-row justify-between">
 		<div class="flex flex-row flex-grow gap-3 items-center">
 			{#each consoleTabs as { name }, index}
-				<div
+				<button
 					class="px-2 hover:text-gray-200 cursor-pointer border-black-lighter"
 					class:border-b-2={activeTab === index}
 					title={name}
-					on:click={() => (activeTab = index)}
+					onclick={() => (activeTab = index)}
 				>
 					{name}
-				</div>
+				</button>
 			{/each}
 		</div>
-		<div
+		<button
 			class="cursor-pointer hover:bg-black-lighter hover:text-gray-200"
-			on:click={() => ($siteLayout.showConsoleBar = false)}
+			onclick={() => ($siteLayout.showConsoleBar = false)}
 		>
 			<XIcon />
-		</div>
+		</button>
 	</div>
 	<div class="flex-grow text-gray-400">
-		<svelte:component this={consoleTabs[activeTab].component} />
+		<SvelteComponent />
 	</div>
 </div>
 

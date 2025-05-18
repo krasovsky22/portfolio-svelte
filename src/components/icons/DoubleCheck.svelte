@@ -1,8 +1,7 @@
-<script>
-	import Icon from '@iconify/svelte';
-	import { DEFAULT_ICON_SIZE } from './constants';
+<script lang="ts">
+	import Icon from './Icon.svelte';
 
-	export let size = DEFAULT_ICON_SIZE;
+	const { ...rest } = $props();
 </script>
 
-<Icon icon="akar-icons:double-check" width={size} height={size} {...$$restProps} />
+<Icon icon="akar-icons:double-check" {...rest} />

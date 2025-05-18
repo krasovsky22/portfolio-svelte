@@ -1,6 +1,8 @@
 <script lang="ts">
-	let inputValue = '';
-	let displayMessage = false;
+	import { preventDefault } from 'svelte/legacy';
+
+	let inputValue = $state('');
+	let displayMessage = $state(false);
 
 	const handleKeyUp = (event: any) => {
 		inputValue = event.target.value;
@@ -21,7 +23,7 @@
 		type="text"
 		placeholder="Search"
 		class="bg-black-light flex-grow py-1"
-		on:keyup|preventDefault={handleKeyUp}
+		onkeyup={preventDefault(handleKeyUp)}
 	/>
 
 	{#if displayMessage && inputValue}

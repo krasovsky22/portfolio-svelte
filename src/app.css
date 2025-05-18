@@ -1,19 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import '@fontsource/fira-mono';
+@plugin '@tailwindcss/typography';
 
-@layer base {
-	:root {
-		--dark-color-main-bg: #252526;
-        --white-color-main-bg: #ffffff
-	}
+:root {
+	--dark-color-main-bg: #252526;
+	--white-color-main-bg: #ffffff;
 }
 
 @font-face {
 	font-family: 'CascadiaCode';
 	font-style: normal;
 	font-weight: normal;
-	src: local('CascadiaCode'), url('/font/CascadiaCode.woff2') format('woff2');
+	src:
+		local('CascadiaCode'),
+		url('/font/CascadiaCode.woff2') format('woff2');
 }
 
 :root {
@@ -31,7 +31,7 @@ body {
 }
 
 .dark body {
-    background-color: var(--dark-color-main-bg);
+	background-color: var(--dark-color-main-bg);
 	color: #ccc;
 }
 

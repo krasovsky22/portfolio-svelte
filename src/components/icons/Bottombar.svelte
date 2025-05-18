@@ -1,8 +1,7 @@
-<script>
-	import Icon from '@iconify/svelte';
+<script lang="ts">
+	import Icon from './Icon.svelte';
 
-	import { DEFAULT_ICON_SIZE } from './constants';
-	export let size = DEFAULT_ICON_SIZE;
+	const { ...rest } = $props();
 </script>
 
-<Icon icon="ph:square-half-bottom-fill" width={size} height={size} />
+<Icon icon="ph:square-half-bottom-fill" {...rest} />

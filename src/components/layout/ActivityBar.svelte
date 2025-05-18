@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { openModal } from 'svelte-modals';
 	import {
 		GearIcon,
 		FileIcon,
@@ -15,6 +14,7 @@
 
 	import { info } from '@stores/info';
 	import { siteLayout } from '@stores/site-layout';
+	import { modals } from 'svelte-modals';
 
 	type ActivityBarItemType = {
 		title: string;
@@ -62,7 +62,7 @@
 		{
 			title: 'Manage',
 			icon: GearIcon,
-            onClick: () => openModal(UserSettingsModal)
+			onClick: () => modals.open(UserSettingsModal)
 		}
 	];
 </script>
@@ -78,13 +78,15 @@
 			>
 				<div class="flex items-center" {title}>
 					{#if url}
+						{@const SvelteComponent = icon}
 						<a href={url} target="_blank" {title}>
-							<svelte:component this={icon} size={32} />
+							<SvelteComponent size={32} />
 						</a>
 					{:else}
-						<div on:click={() => ($siteLayout.activeActivityBarTab = title)}>
-							<svelte:component this={icon} size={32} />
-						</div>
+						{@const SvelteComponent_1 = icon}
+						<button onclick={() => ($siteLayout.activeActivityBarTab = title)}>
+							<SvelteComponent_1 size={32} />
+						</button>
 					{/if}
 				</div>
 			</li>
@@ -93,10 +95,11 @@
 
 	<ul class="w-full flex flex-col justify-center self-end">
 		{#each activityBarBottomItems as { title, icon, onClick }}
+			{@const SvelteComponent_2 = icon}
 			<li class="mx-auto p-2 cursor-pointer hover:text-primary border-l-primary hover:border-l-2">
-				<div class="flex items-center" {title} on:click={() => onClick && onClick()}>
-					<svelte:component this={icon} size={32} />
-				</div>
+				<button class="flex items-center" {title} onclick={() => onClick && onClick()}>
+					<SvelteComponent_2 />
+				</button>
 			</li>
 		{/each}
 	</ul>

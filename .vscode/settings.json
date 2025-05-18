@@ -1,4 +1,8 @@
 {
     "editor.formatOnSave": false,
-    "editor.formatOnSaveMode": "modificationsIfAvailable"
+    "editor.formatOnSaveMode": "modificationsIfAvailable",
+    "cSpell.words": [
+        "Bottombar",
+        "Hoverable"
+    ]
 }
