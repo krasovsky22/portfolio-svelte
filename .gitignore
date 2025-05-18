@@ -1,9 +1,33 @@
-# Package Managers
+# Build directories
+/build
+/.svelte-kit/
+/.vercel/
+/.netlify/
+/.output/
+
+# Dependencies
+/node_modules/
+/.pnp/
+.pnp.js
+
+# Package manager files
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
 bun.lock
 bun.lockb
-node_modules
-.svelte-kit
-.svelte-kit/*
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE and OS files
+.DS_Store
+*.pem
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

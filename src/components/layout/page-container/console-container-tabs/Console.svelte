@@ -111,6 +111,7 @@
 		<div>%</div>
 		<div class="flex-grow">
 			<div
+                aria-role="input"
 				contenteditable="true"
 				class="w-full bg-transparent border-none outline-none"
 				bind:this={commandInput}
