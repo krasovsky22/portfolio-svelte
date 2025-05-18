@@ -9,19 +9,17 @@
 	import PageLink from './PageLink.svelte';
 </script>
 
-<div class="w-44 flex flex-col text-xs h-full" transition:fly|global={{ x: -30 }}>
+<div class="flex h-full w-44 flex-col text-xs" transition:fly|global={{ x: -30 }}>
 	{#if $siteLayout.activeActivityBarTab === 'Explorer'}
 		<div class="p-2">Explorer</div>
-		<Hoverable  classNames="h-full">
+		<Hoverable classNames="h-full">
 			{#snippet children({ hovering: hovered })}
-						<Collapseable>
+				<Collapseable>
 					{#snippet header({ collapsed })}
-								<div
-							
-							
-							class="py-0.5 px-1 uppercase border-black-lighter border text-black-lighter bg-primary-light dark:bg-black-light flex items-center space-between cursor-pointer"
+						<div
+							class="border-black-lighter text-black-lighter bg-primary-light dark:bg-black-light space-between flex cursor-pointer items-center border px-1 py-0.5 uppercase"
 						>
-							<div class="flex gap-3 flex-grow items-center">
+							<div class="flex flex-grow items-center gap-3">
 								<ArrowIcon size={18} rotate={collapsed ? 0 : 1} />
 								Porftolio-svelte
 							</div>
@@ -31,22 +29,22 @@
 								</div>
 							{/if}
 						</div>
-							{/snippet}
+					{/snippet}
 					{#snippet body()}
-								<div  class="py-0.5 flex items-center space-between cursor-pointer">
-							<div class="w-full flex flex-col">
+						<div class="space-between flex cursor-pointer items-center py-0.5">
+							<div class="flex w-full flex-col">
 								{#each $pageDocuments as page}
 									<PageLink {...page} innerClasses="pl-4" />
 								{/each}
 							</div>
 						</div>
-							{/snippet}
+					{/snippet}
 				</Collapseable>
-								{/snippet}
-				</Hoverable>
+			{/snippet}
+		</Hoverable>
 	{/if}
 
 	{#if $siteLayout.activeActivityBarTab === 'Search'}
-        <Search />
-    {/if}
+		<Search />
+	{/if}
 </div>
