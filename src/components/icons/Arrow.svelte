@@ -1,8 +1,7 @@
 <script lang="ts">
-	import Icon from '@iconify/svelte';
-	import { DEFAULT_ICON_SIZE } from './constants';
+	import Icon from './Icon.svelte';
 
-	let { size = DEFAULT_ICON_SIZE, ...rest } = $props();
+	const { ...rest } = $props();
 </script>
 
-<Icon icon="dashicons:arrow-right-alt2" width={size} height={size} {...rest} />
+<Icon icon="dashicons:arrow-right-alt2" {...rest} />

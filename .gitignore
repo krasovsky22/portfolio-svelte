@@ -5,3 +5,4 @@ yarn.lock
 bun.lock
 bun.lockb
 node_modules
+.svelte-kit

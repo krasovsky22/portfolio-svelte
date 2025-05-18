@@ -1,8 +1,7 @@
 <script lang="ts">
-	import Icon from '@iconify/svelte';
-	import { DEFAULT_ICON_SIZE } from './constants';
+	import Icon from './Icon.svelte';
 
-	let { size = DEFAULT_ICON_SIZE } = $props();
+	const { ...rest } = $props();
 </script>
 
-<Icon icon="cib:discord" width={size} height={size} />
+<Icon icon="cib:discord" {...rest} />

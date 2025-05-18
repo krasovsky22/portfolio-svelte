@@ -1,10 +1,16 @@
 {
 	"/": [
-		"src/routes/+page.ts"
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
 	],
 	"/about": [
-		"src/routes/about/+page.ts"
+		"src/routes/about/+page.ts",
+		"src/routes/+layout.ts"
 	],
-	"/social": [],
-	"/works": []
+	"/social": [
+		"src/routes/+layout.ts"
+	],
+	"/works": [
+		"src/routes/+layout.ts"
+	]
 }

@@ -22,8 +22,7 @@
 			class={`opacity-${
 				hovered ? 100 : 40
 			} cursor-pointer flex flex-col relative overflow-hidden h-full p-2 border-none bg-transparent`}
-			on:click={onClickEvent}
-			on:keydown={(e) => e.key === 'Enter' && onClickEvent?.()}
+			onclick={onClickEvent}
 			aria-label="View image details"
 		>
 			<img src={imageUrl} alt="text-project" class:zoom={hovered} class="h-full" />
