@@ -41,9 +41,9 @@
 			{#each layoutNavigationActions as { title, icon, action, active }}
 				{@const SvelteComponent = icon}
 				<li class="cursor-pointer hover:text-blue-500 h-full flex py-1" class:text-blue-500={active}>
-					<div class="flex items-center" {title} onclick={action}>
+					<button class="flex items-center" {title} onclick={action}>
 						<SvelteComponent />
-					</div>
+					</button>
 				</li>
 			{/each}
 		</ul>

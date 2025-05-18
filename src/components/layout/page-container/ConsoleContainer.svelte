@@ -42,22 +42,22 @@
 	<div class="flex flex-row justify-between">
 		<div class="flex flex-row flex-grow gap-3 items-center">
 			{#each consoleTabs as { name }, index}
-				<div
+				<button
 					class="px-2 hover:text-gray-200 cursor-pointer border-black-lighter"
 					class:border-b-2={activeTab === index}
 					title={name}
 					onclick={() => (activeTab = index)}
 				>
 					{name}
-				</div>
+				</button>
 			{/each}
 		</div>
-		<div
+		<button
 			class="cursor-pointer hover:bg-black-lighter hover:text-gray-200"
 			onclick={() => ($siteLayout.showConsoleBar = false)}
 		>
 			<XIcon />
-		</div>
+		</button>
 	</div>
 	<div class="flex-grow text-gray-400">
 		<SvelteComponent />

@@ -26,23 +26,15 @@
 	{#snippet backdrop({ close })}
 		<button
 			type="button"
-			class="opacity-75 fixed inset-0 z-10 w-full bg-gray-500 transition-opacity"
+			class="fixed inset-0 z-10 w-full bg-gray-500 opacity-75 transition-opacity"
 			aria-label="Close modal"
 			onclick={() => close()}
 		></button>
 	{/snippet}
 </Modals>
 
-<MediaQuery query="(max-width: 1279px)" let:matches>
-	{#if matches}
-		<div class="mt-4 flex w-full flex-col items-center justify-center text-center">
-			<div class="my-auto"><h1>No Mobile Version Available Yet</h1></div>
-		</div>
-	{/if}
-</MediaQuery>
-
-<MediaQuery query="(min-width: 1280px)" let:matches>
-	{#if matches}
+<MediaQuery query="(min-width: 1280px)">
+	{#snippet content()}
 		<main class="flex flex-grow flex-col">
 			<TitleBar />
 			<div class="flex min-h-full w-full flex-grow">
@@ -70,5 +62,5 @@
 				</div>
 			</div>
 		</main>
-	{/if}
+	{/snippet}
 </MediaQuery>

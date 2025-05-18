@@ -8,7 +8,7 @@
 	class={`dot ${$$props.class}`}
 	style:height={`${size}px`}
 	style:width={`${size}px`}
-/>
+></div>
 
 <style>
 	:global(.dot) {
