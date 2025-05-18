@@ -16,6 +16,6 @@
 	}
 </script>
 
-<div onmouseenter={enter} onmouseleave={leave} class={classNames}>
+<div onmouseenter={enter} onmouseleave={leave} class={classNames} role="button" tabindex="0">
 	{@render children?.({ hovering, })}
 </div>

@@ -55,14 +55,14 @@
 			{/if}
 		</div>
 
-		<div class="flex flex-col gap-10">
-			<div class="flex h-full  h-[15vh]">
+		<div class="flex flex-col gap-6 mt-4">
+			<div class="grid grid-cols-4 gap-4 items-center justify-items-center">
 				<AwsSolutionArchitectBadge />
 				<AzureSolutionArchitectBadge />
 				<GoogleSolutionArchitectBadge />
 				<MetaFrontEndDeveloperBadge />
 			</div>
-			<div class="flex h-full  h-[10vh]">
+			<div class="grid grid-cols-4 gap-4 items-center justify-items-center">
 				<NodeJsBadge />
 				<PHPBadge />
 				<GoBadge />

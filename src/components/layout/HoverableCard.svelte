@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { Hoverable } from '@components/shared';
 
-    type OnClickEventType = () => void
+	type OnClickEventType = () => void;
 
 	interface Props {
 		imageUrl: string;
@@ -15,24 +15,29 @@
 	const children_render = $derived(children);
 </script>
 
-<Hoverable >
+<Hoverable>
 	{#snippet children({ hovering: hovered })}
 		<button
 			type="button"
 			class={`opacity-${
 				hovered ? 100 : 40
-			} cursor-pointer flex flex-col relative overflow-hidden h-full p-2 border-none bg-transparent`}
+			} relative flex h-full w-full cursor-pointer flex-col overflow-hidden border-none bg-transparent p-2`}
 			onclick={onClickEvent}
 			aria-label="View image details"
 		>
-			<img src={imageUrl} alt="text-project" class:zoom={hovered} class="h-full" />
+			<img
+				src={imageUrl}
+				alt="text-project"
+				class:zoom={hovered}
+				class="h-full max-h-[120px] w-full object-contain"
+			/>
 			{#if hovered && onClickEvent}
 				<div
-					class="absolute w-full h-full inset-0 flex flex-col justify-center items-center"
+					class="absolute inset-0 flex h-full w-full flex-col items-center justify-center"
 					transition:fade|global
 				>
 					<div
-						class="max-height-60 flex flex-col w-1/4 h-1/4 opacity-80 items-center justify-center p-1 rounded-full bg-primary-light text-black-light text-center"
+						class="bg-primary-light text-black-light flex max-w-[80%] flex-col items-center justify-center rounded-lg p-2 text-center opacity-80"
 					>
 						<p class="text-fit">
 							{#if children_render}{@render children_render()}{:else}View{/if}
@@ -50,12 +55,8 @@
 		transition-duration: 500ms;
 	}
 
-	.max-height-60 {
-		max-height: 60%;
-		max-width: 60%;
-	}
-
-    .text-fit {
-        font-size: 0.7rem;
+	.text-fit {
+		font-size: 0.9rem;
+		font-weight: 500;
 	}
 </style>
