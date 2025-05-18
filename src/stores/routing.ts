@@ -1,10 +1,10 @@
 import { page } from '$app/stores';
 import { derived } from 'svelte/store';
 import { SvelteIcon, BracketsIcon } from '@components/icons';
+import type { Component } from 'svelte';
 
-console.log(derived);;
 type DOCUMENT_TYPE = {
-	icon: any;
+	icon: Component;
 	display: string;
 	isActive: boolean;
 	url: POSSIBLE_ROUTES;
