@@ -1,17 +1,12 @@
 <script lang="ts">
 	import '../app.css';
 	import { Modals } from 'svelte-modals';
-    import { messages } from '@stores/chat';
 	import { siteLayout } from '@stores/site-layout';
 	import Footer from '@/components/layout/Footer.svelte';
 	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
 	import PageContainer from '@/components/layout/page-container/PageContainer.svelte';
 	import RightBar from '@/components/layout/RightBar.svelte';
 	import MediaQuery from '@/components/MediaQuery.svelte';
-
-	const { data } = $props();
-
-    messages.set(data.messages)
 </script>
 
 <Modals>
