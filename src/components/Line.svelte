@@ -12,16 +12,17 @@
 	const children_render = $derived(children);
 </script>
 
-<Hoverable classNames="flex gap-3 items-center" >
+<Hoverable classNames="flex gap-3 items-center">
 	{#snippet children({ hovering })}
-		<div class="w-1 px-1 h-full">
+		<div class="h-full w-1 px-1">
 			{#if hovering}
-				<Dot class="bg-red-900 mb-0.5" size={6} />
+				<Dot class="mb-0.5 bg-red-900" size={6} />
 			{/if}
 		</div>
 		<div class="w-10 px-2 text-sm">{lineNumber}</div>
 		<div class="flex-grow">
-			{#if children_render}{@render children_render()}{:else}
+			{#if children_render}{@render children_render()}
+			{:else}
 				<p>&nbsp;</p>
 			{/if}
 		</div>

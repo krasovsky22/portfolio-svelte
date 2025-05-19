@@ -5,4 +5,3 @@
 </script>
 
 <Icon icon="akar-icons:gear" {...rest} />
-codicon:tools

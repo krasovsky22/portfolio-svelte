@@ -1,11 +1,29 @@
-<script>
+<script lang="ts">
 	import { Chat } from '@ai-sdk/svelte';
-	import { messages } from '@stores/chat';
 	import { siteLayout } from '@stores/site-layout';
 	import { SendIcon, XIcon, ToolsIcon } from '@icons';
 	import Account from '../icons/Account.svelte';
 
 	const chat = new Chat({ maxSteps: 5 });
+	let isLoading = false;
+	let userMessage = '';
+
+	async function handleSubmit(event: Event) {
+		event.preventDefault();
+		if (!chat.input.trim()) return;
+
+		console.log('handleSubmit', chat.input);
+
+		isLoading = true;
+		userMessage = chat.input.trim();
+
+		try {
+			await chat.handleSubmit(event);
+		} finally {
+			isLoading = false;
+			userMessage = '';
+		}
+	}
 </script>
 
 {#snippet chatUser()}
@@ -18,9 +36,10 @@
 	<span class="my-auto text-[10px]">Github Copilot</span>
 {/snippet}
 
-<div class="flex h-full max-w-[400px] flex-col border-l border-[#404040] bg-[#1e1e1e] text-sm">
+<div class="flex h-full w-[300px] flex-col border-l border-[#404040] bg-[#1e1e1e] text-sm">
 	<!-- Header bar -->
-	<div class="flex w-full border-b border-[#404040] bg-[#252526]">
+	<div class="flex w-full items-center border-b border-[#404040] bg-[#252526]">
+		<span class="ml-2 border-b border-orange-400 text-[10px]">CHAT</span>
 		<button
 			class="ml-auto cursor-pointer rounded p-1 hover:bg-[#404040]"
 			onclick={() => ($siteLayout.showRightBar = !$siteLayout.showRightBar)}
@@ -33,7 +52,7 @@
 	<div class="flex flex-1 flex-grow flex-col gap-2 overflow-y-auto p-2 text-[12px]">
 		{#each chat.messages as message, messageIndex (messageIndex)}
 			<div
-				class="flex flex-col gap-2 {message.role === 'assistant'
+				class="flex flex-col gap-2 {(message.role || isLoading) === 'assistant'
 					? 'bg-[#2c2c2c]'
 					: ''} rounded-lg p-3"
 			>
@@ -49,12 +68,23 @@
 				</div>
 			</div>
 		{/each}
+
+		{#if isLoading}
+			<div class="flex flex-col gap-2 bg-[#2c2c2c] rounded-lg p-3">
+				<div class="align-items-center flex gap-1 font-semibold text-[#4e94ce] capitalize">
+					{@render chatAssistant()}
+				</div>
+				<div class="text-[#cccccc]">
+					<div>Github Copilot is thinking...</div>
+				</div>
+			</div>
+		{/if}
 	</div>
 
 	<!-- Send message footer card -->
 	<div class="flex w-full self-end border-t border-[#404040] bg-[#252526] p-4">
 		<form
-			onsubmit={chat.handleSubmit}
+			onsubmit={handleSubmit}
 			class="flex w-full flex-col gap-2 rounded border border-[#565656] bg-[#3c3c3c] px-2 py-1"
 		>
 			<div class="flex w-full items-center gap-2 px-3 py-2">
@@ -71,8 +101,9 @@
 				>
 				<button
 					type="submit"
-					class="flex h-6 w-6 cursor-pointer items-center justify-center justify-self-end rounded text-sm hover:bg-[#404040]"
+					class="flex h-6 w-6 cursor-pointer items-center justify-center justify-self-end rounded text-sm hover:bg-[#404040] disabled:cursor-not-allowed disabled:opacity-50"
 					title="Send (Enter)"
+					disabled={isLoading}
 				>
 					<SendIcon class="text-[#848484]" size={16} />
 				</button>
