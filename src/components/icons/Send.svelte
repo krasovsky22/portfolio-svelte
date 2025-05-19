@@ -4,5 +4,5 @@
 	const { ...rest } = $props();
 </script>
 
-<Icon icon="akar-icons:gear" {...rest} />
-codicon:tools
+<Icon icon="mdi:send-variant-outline" {...rest} />
+

@@ -4,5 +4,4 @@
 	const { ...rest } = $props();
 </script>
 
-<Icon icon="akar-icons:gear" {...rest} />
-codicon:tools
+<Icon icon="jam:mic-alt" {...rest} />

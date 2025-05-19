@@ -9,7 +9,8 @@ const config = {
 			'@': 'src',
 			'@utils': 'src/utils',
 			'@stores': 'src/stores',
-			'@components': 'src/components'
+			'@components': 'src/components',
+			'@icons': 'src/components/icons'
 		}
 	}
 };

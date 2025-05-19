@@ -1,7 +1,10 @@
 export { default as XIcon } from './X.svelte';
+export { default as SendIcon } from './Send.svelte';
+export { default as MicrophoneIcon } from './Microphone.svelte';
 export { default as GearIcon } from './Gear.svelte';
 export { default as BellIcon } from './Bell.svelte';
 export { default as FileIcon } from './File.svelte';
+export { default as ToolsIcon } from './Tools.svelte';
 export { default as GraphIcon } from './Graph.svelte';
 export { default as ArrowIcon } from './Arrow.svelte';
 export { default as GithubIcon } from './Github.svelte';
