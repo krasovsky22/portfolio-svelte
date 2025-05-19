@@ -70,7 +70,7 @@
 				<!-- Messages window -->
 				<div
 					bind:this={messagesContainer}
-					class="scrollbar-custom max-h-[75vh] min-h-0 flex-1 overflow-y-auto p-2 text-[12px]"
+					class="scrollbar-custom max-h-[80vh] min-h-0 flex-1 overflow-y-auto p-2 text-[12px]"
 				>
 					<div class="flex flex-col gap-2">
 						{#each chat.messages as message, messageIndex (messageIndex)}
