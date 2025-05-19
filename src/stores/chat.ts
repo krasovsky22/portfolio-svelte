@@ -1,4 +1,4 @@
-import { type Message } from '@ai-sdk/svelte';
+import { type UIMessage } from '@ai-sdk/svelte';
 import { writable } from 'svelte/store';
 
-export const messages = writable<Message[]>([]);
+export const messages = writable<UIMessage[]>([]);
