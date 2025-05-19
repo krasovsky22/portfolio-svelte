@@ -29,7 +29,7 @@
 				src={imageUrl}
 				alt="text-project"
 				class:zoom={hovered}
-				class="h-full max-h-[120px] w-full object-contain"
+				class="h-full w-full object-contain"
 			/>
 			{#if hovered && onClickEvent}
 				<div

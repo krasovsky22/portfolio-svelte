@@ -42,7 +42,7 @@
 </svelte:head>
 
 <section class="relative section-image flex items-center h-full">
-	<div class="ml-[15%] flex flex-col gap-6 h-1/3">
+	<div class="ml-[15%] flex flex-col gap-6 w-[40%]">
 		<div class="text-6xl text-white"><h1>Vlad Krasovsky</h1></div>
 		<div class="text-2xl flex gap-1 items-center text-primary-light">
 			{#if visible}
