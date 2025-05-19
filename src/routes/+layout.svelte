@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
-	import { onMount } from 'svelte';
 	import { Modals } from 'svelte-modals';
+    import { messages } from '@stores/chat';
 	import { siteLayout } from '@stores/site-layout';
 	import Footer from '@/components/layout/Footer.svelte';
 	import { ActivityBar, PrimaryBar, TitleBar } from '@components/layout';
@@ -9,17 +9,9 @@
 	import RightBar from '@/components/layout/RightBar.svelte';
 	import MediaQuery from '@/components/MediaQuery.svelte';
 
-	$: onMount(() => {
-		// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-		if (
-			localStorage.theme === 'light' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)')?.matches)
-		) {
-			$siteLayout.darkMode = false;
-		} else {
-			$siteLayout.darkMode = true;
-		}
-	});
+	const { data } = $props();
+
+    messages.set(data.messages)
 </script>
 
 <Modals>

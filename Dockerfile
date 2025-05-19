@@ -23,4 +23,4 @@ EXPOSE 5000
 
 ENV HOST=127.0.0.1
 
-CMD [ "yarn", "dev" , "--port", "5000", "--host"]
+CMD ["yarn", "dev", "--port", "5000", "--host"]

@@ -52,6 +52,7 @@
 		"@ai-sdk/google": "^1.2.18",
 		"@google/genai": "^0.14.1",
 		"@iconify/svelte": "^5.0.0",
+		"ioredis": "^5.6.1",
 		"svelte-modals": "^2.0.1"
 	}
 }

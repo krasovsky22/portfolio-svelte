@@ -1,8 +1,15 @@
+import Redis from 'ioredis';
 import { streamText } from 'ai';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { experimental_createMCPClient } from 'ai';
 
-import { GOOGLE_GENERATIVE_AI_API_KEY, BIOGRAPHY_MCP_SERVER_URL } from '$env/static/private';
+import {
+	REDIS_URL,
+	GOOGLE_GENERATIVE_AI_API_KEY,
+	BIOGRAPHY_MCP_SERVER_URL
+} from '$env/static/private';
+
+const redis = new Redis(REDIS_URL);
 
 const biographyMcpClient = await experimental_createMCPClient({
 	transport: {
@@ -37,6 +44,8 @@ const tools = await biographyMcpClient.tools();
 
 export async function POST({ request }) {
 	const { messages } = await request.json();
+
+    redis.set('messages', JSON.stringify(messages));
 
 	const result = await streamText({
 		model: google('gemini-2.5-flash-preview-04-17'),

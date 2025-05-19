@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: portfolio-redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
+    networks:
+      - portfolio-network
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ['CMD-SHELL', 'redis-cli ping | grep PONG']
+      interval: 1s
+      timeout: 3s
+      retries: 5
+
+  web:
+    image: portfolio/svelte
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio-svelte
+    ports:
+      - '5000:5000'
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=5000
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      redis:
+        condition: service_healthy
+    volumes:
+      - .:/app
+      - ./package.json:/app/package.json
+      - ./yarn.lock:/app/yarn.lock
+      - /app/node_modules
+    command: yarn dev --port 5000 --host
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+    driver: local
