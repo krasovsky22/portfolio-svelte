@@ -20,20 +20,23 @@
 	{/snippet}
 </Modals>
 
-<MediaQuery query="(min-width: 1280px)">
-	{#snippet content()}
+<MediaQuery>
+	{#snippet content({ isIpad, isMobile, isFullScreen })}
 		<main class="flex flex-grow flex-col">
 			<TitleBar />
-			<div class="flex min-h-full w-full flex-grow">
-				<div class="border-r border-x-black">
-					<ActivityBar />
-				</div>
+			<div class:flex-col={isMobile || isIpad} class="flex min-h-full w-full flex-grow">
+				{#if isFullScreen}
+					<div class="border-r border-x-black">
+						<ActivityBar />
+					</div>
 
-				<div class="border-r border-x-black">
-					{#if $siteLayout.showPrimaryBar}
-						<PrimaryBar />
-					{/if}
-				</div>
+					<div class="border-r border-x-black">
+						{#if $siteLayout.showPrimaryBar}
+							<PrimaryBar />
+						{/if}
+					</div>
+				{/if}
+
 				<div class="dark:bg-black-light flex flex-grow flex-col">
 					<div class="flex flex-grow">
 						<PageContainer>
@@ -42,6 +45,7 @@
 					</div>
 					<Footer />
 				</div>
+
 				<div class="border-r border-x-black">
 					{#if $siteLayout.showRightBar}
 						<RightBar />

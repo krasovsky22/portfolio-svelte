@@ -3,17 +3,28 @@
 	import { onMount } from 'svelte';
 	import type { Snippet } from 'svelte';
 
-	interface Props {
-		query: string;
-		content: Snippet<[boolean]>;
+	import {
+		siteLayout,
+		FULL_SCREEN_MEDIA_QUERY,
+		IPAD_MEDIA_QUERY,
+		MOBILE_MEDIA_QUERY
+	} from '@stores/site-layout';
+
+	interface ViewportState {
+		isFullScreen: boolean;
+		isIpad: boolean;
+		isMobile: boolean;
 	}
 
-	let { query, content }: Props = $props();
+	interface Props {
+		content: Snippet<[ViewportState]>;
+	}
+
+	let { content }: Props = $props();
 
 	let mql: MediaQueryList;
-	let mqlListener: (event: MediaQueryListEvent) => void;
+	let mqlListener: (event: MediaQueryListEvent | MediaQueryList) => void;
 	let wasMounted = $state(false);
-	let matches = $state(false);
 
 	onMount(() => {
 		wasMounted = true;
@@ -24,11 +35,30 @@
 
 	function addNewListener(query: string) {
 		mql = window.matchMedia(query);
-		mqlListener = (event) => {
-			matches = event.matches;
+
+		mqlListener = (event: MediaQueryListEvent | MediaQueryList) => {
+			if (!event.matches) {
+				return;
+			}
+
+			if (query === FULL_SCREEN_MEDIA_QUERY) {
+				$siteLayout.isFullScreen = event.matches;
+				$siteLayout.isIpadVersion = false;
+				$siteLayout.isMobileVersion = false;
+			} else if (query === IPAD_MEDIA_QUERY) {
+				$siteLayout.isIpadVersion = true;
+				$siteLayout.isFullScreen = false;
+				$siteLayout.isMobileVersion = false;
+			} else if (query === MOBILE_MEDIA_QUERY) {
+				$siteLayout.isMobileVersion = event.matches;
+				$siteLayout.isFullScreen = false;
+				$siteLayout.isIpadVersion = false;
+			}
 		};
+
 		mql.addEventListener('change', mqlListener);
-		matches = mql.matches;
+		// Initial check
+		mqlListener(mql);
 	}
 
 	function removeActiveListener() {
@@ -36,18 +66,19 @@
 			mql.removeEventListener('change', mqlListener);
 		}
 	}
+
 	$effect(() => {
 		if (wasMounted) {
 			removeActiveListener();
-			addNewListener(query);
+			addNewListener(FULL_SCREEN_MEDIA_QUERY);
+			addNewListener(IPAD_MEDIA_QUERY);
+			addNewListener(MOBILE_MEDIA_QUERY);
 		}
 	});
 </script>
 
-{#if matches}
-	{@render content(matches)}
-{:else}
-	<div class="mt-4 flex w-full flex-col items-center justify-center text-center">
-		<div class="my-auto"><h1>No Mobile Version Available Yet</h1></div>
-	</div>
-{/if}
+{@render content({
+	isIpad: $siteLayout.isIpadVersion,
+	isMobile: $siteLayout.isMobileVersion,
+	isFullScreen: $siteLayout.isFullScreen
+})}

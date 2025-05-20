@@ -9,8 +9,11 @@
 	let { children }: Props = $props();
 </script>
 
-<div class="flex flex-col flex-grow">
-	<TopPagesTabs />
+<div class="flex flex-grow flex-col">
+	{#if !$siteLayout.isMobileVersion}
+		<TopPagesTabs />
+	{/if}
+
 	<div class="flex-grow">
 		{@render children?.()}
 	</div>

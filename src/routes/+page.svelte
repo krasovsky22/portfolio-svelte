@@ -2,6 +2,8 @@
 	import { fade } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
 	import { typeWriterTransition } from '@utils/transitions';
+    import { siteLayout } from '@stores/site-layout';
+
 	import {
 		GoBadge,
 		PHPBadge,
@@ -42,7 +44,7 @@
 </svelte:head>
 
 <section class="relative section-image flex items-center h-full">
-	<div class="ml-[15%] flex flex-col gap-6 w-[40%]">
+	<div class:w-[40%]={$siteLayout.isFullScreen} class:w-[70%]={$siteLayout.isIpadVersion || $siteLayout.isMobileVersion} class:ml-[15%]={!$siteLayout.isMobileVersion} class:ml-[5%]={$siteLayout.isMobileVersion} class="flex flex-col gap-6">
 		<div class="text-6xl text-white"><h1>Vlad Krasovsky</h1></div>
 		<div class="text-2xl flex gap-1 items-center text-primary-light">
 			{#if visible}

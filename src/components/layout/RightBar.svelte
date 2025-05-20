@@ -52,7 +52,7 @@
 
 {#if $siteLayout.showRightBar}
 	<div
-		class="flex h-full w-[350px] flex-1 flex-col overflow-hidden border-l border-[#424242] bg-[#1e1e1e]"
+		class:w-[350px]={$siteLayout.isFullScreen} class="flex h-full flex-1 flex-col overflow-hidden border-l border-[#424242] bg-[#1e1e1e]"
 	>
 		<!-- Header bar -->
 		<div class="flex w-full items-center border-b border-[#404040] bg-[#252526]">
@@ -70,7 +70,7 @@
 				<!-- Messages window -->
 				<div
 					bind:this={messagesContainer}
-					class="scrollbar-custom max-h-[80vh] min-h-0 flex-1 overflow-y-auto p-2 text-[12px]"
+					class="scrollbar-custom max-h-[80vh] min-h-[150px] flex-1 overflow-y-auto p-2 text-[12px]"
 				>
 					<div class="flex flex-col gap-2">
 						{#each chat.messages as message, messageIndex (messageIndex)}

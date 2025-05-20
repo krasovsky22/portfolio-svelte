@@ -30,6 +30,7 @@
 							{/if}
 						</div>
 					{/snippet}
+
 					{#snippet body()}
 						<div class="space-between flex cursor-pointer items-center py-0.5">
 							<div class="flex w-full flex-col">
