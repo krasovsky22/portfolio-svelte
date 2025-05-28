@@ -64,6 +64,24 @@
 				<XIcon />
 			</button>
 		</div>
+        
+		<!-- Notification Alert -->
+		<div class="mx-2 mt-2 rounded-lg border-l-4 border-r-4 border-blue-500 bg-gradient-to-r from-blue-900/20 to-blue-800/10 p-3 shadow-sm animate-pulse">
+			<div class="flex items-center gap-2">
+				<div class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-500/20">
+					<div class="h-2 w-2 rounded-full bg-blue-400 animate-ping"></div>
+				</div>
+				<div class="flex-1 text-center">
+					<div class="text-xs font-medium text-blue-300">Live AI Assistant Available</div>
+					<div class="mt-1 text-xs text-gray-300">
+						Call <a href="tel:+18189185059" class="font-mono font-semibold text-blue-200 animate-pulse hover:text-blue-100 underline cursor-pointer">818-918-5059</a> to talk to AI assistant developed by Vlad
+					</div>
+				</div>
+                <div class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-500/20">
+					<div class="h-2 w-2 rounded-full bg-blue-400 animate-ping"></div>
+				</div>
+			</div>
+		</div>
 
 		<div class="relative z-0 flex flex-1 flex-col">
 			<div class="flex h-full flex-col">
