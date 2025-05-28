@@ -74,7 +74,7 @@
 				<div class="flex-1 text-center">
 					<div class="text-xs font-medium text-blue-300">Live AI Assistant Available</div>
 					<div class="mt-1 text-xs text-gray-300">
-						Call <a href="tel:+18189185059" class="font-mono font-semibold text-blue-200 animate-pulse hover:text-blue-100 underline cursor-pointer">818-918-5059</a> to talk to AI assistant developed by Vlad
+						Call <a href="tel:+18189185059" class="font-mono font-semibold text-blue-200 animate-pulse hover:text-blue-100 underline cursor-pointer">818-918-5059</a> to talk to my AI assistant prototype.
 					</div>
 				</div>
                 <div class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-500/20">
