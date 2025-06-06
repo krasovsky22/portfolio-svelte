@@ -4,7 +4,7 @@
 
 :root {
 	--dark-color-main-bg: #252526;
-	--white-color-main-bg: #ffffff;
+	--white-color-main-bg: #f8f9fa;
 }
 
 /* Custom scrollbar styling */
@@ -65,6 +65,11 @@ body {
 }
 
 .dark body {
+	background-color: var(--dark-color-main-bg);
+	color: #ccc;
+}
+
+.dark modal {
 	background-color: var(--dark-color-main-bg);
 	color: #ccc;
 }

@@ -50,3 +50,10 @@ export const toggleDarkMode = () => {
 		};
 	});
 };
+
+export const toggleRightBar = () => {
+	siteLayout.update((store) => ({
+		...store,
+		showRightBar: !store.showRightBar
+	}));
+};

@@ -12,7 +12,7 @@
 </script>
 
 <Modal isOpen title="User Settings" {close}>
-	<div class="flex w-[20vw] items-center justify-center">
+	<div class="flex w-[20vw] items-center justify-center ">
 		<div class="m-5 flex w-full">
 			<Toggle checked={$siteLayout.darkMode} onClick={toggleDarkMode}>Dark Mode</Toggle>
 		</div>
