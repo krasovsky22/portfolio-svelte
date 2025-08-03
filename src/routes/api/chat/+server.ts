@@ -1,8 +1,11 @@
 import { streamText } from 'ai';
-import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { createOpenAI } from '@ai-sdk/openai';
 import { experimental_createMCPClient } from 'ai';
 
-import { GOOGLE_GENERATIVE_AI_API_KEY, BIOGRAPHY_MCP_SERVER_URL } from '$env/static/private';
+import {
+	OPEN_AI_AI_API_KEY, 
+    BIOGRAPHY_MCP_SERVER_URL,
+} from '$env/static/private';
 
 const biographyMcpClient = await experimental_createMCPClient({
 	transport: {
@@ -29,9 +32,10 @@ The messages will be in the following format:
 The last message will always be from the user. You need to respond to this message.
 `;
 
-const google = createGoogleGenerativeAI({
-	apiKey: GOOGLE_GENERATIVE_AI_API_KEY
-});
+
+const openAi = createOpenAI({
+    apiKey: OPEN_AI_AI_API_KEY,
+})
 
 const tools = await biographyMcpClient.tools();
 
@@ -39,12 +43,13 @@ export async function POST({ request }) {
 	const { messages } = await request.json();
 
 	const result = await streamText({
-		model: google('gemini-2.5-flash-preview-04-17'),
+		model: openAi('gpt-4.1-mini'),
 		messages,
 		system: SYSTEM_PROMPT,
 		maxSteps: 5,
 		tools
 	});
+
 
 	return result.toDataStreamResponse();
 }
