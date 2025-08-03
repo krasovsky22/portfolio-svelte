@@ -140,7 +140,7 @@
 						<div class="align-items-center ml-auto flex flex-1 justify-between gap-3">
 							<span class="font-family-[system-ui] my-auto text-[10px]">Ask</span>
 							<span class="font-family-[system-ui] my-auto text-[10px]"
-								>gemini-2.5-flash-preview-04-17</span
+								>gpt-4.1-mini</span
 							>
 							<button
 								type="submit"
