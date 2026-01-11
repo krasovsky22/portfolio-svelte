@@ -28,8 +28,6 @@
 		event.preventDefault();
 		if (!chat.input.trim()) return;
 
-		console.log('handleSubmit', chat.input);
-
 		isLoading = true;
 
 		try {

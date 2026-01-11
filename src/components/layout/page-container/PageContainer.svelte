@@ -10,8 +10,6 @@
 	}
 
 	let { children }: Props = $props();
-
-    console.log($activePage)
 </script>
 
 <div class="flex flex-grow flex-col">
