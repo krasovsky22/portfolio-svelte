@@ -7,6 +7,7 @@
 	import PageContainer from '@/components/layout/page-container/PageContainer.svelte';
 	import RightBar from '@/components/layout/RightBar.svelte';
 	import MediaQuery from '@/components/MediaQuery.svelte';
+	import { activePage, Routes, POSSIBLE_ROUTES } from '@/stores/routing';
 </script>
 
 <Modals>
@@ -19,6 +20,11 @@
 		></button>
 	{/snippet}
 </Modals>
+
+<svelte:head>
+	<title>{ Routes[$activePage?.url ?? POSSIBLE_ROUTES.INDEX]?.title}</title>
+	<meta name="description" content={Routes[$activePage?.url ?? POSSIBLE_ROUTES.INDEX]?.description} />
+</svelte:head>
 
 <MediaQuery>
 	{#snippet content({ isIpad, isMobile, isFullScreen })}

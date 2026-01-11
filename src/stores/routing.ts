@@ -63,13 +63,13 @@ export const Routes: Record<POSSIBLE_ROUTES | string, ROUTE_TYPE> = {
 	},
 	[POSSIBLE_ROUTES.SOCIAL]: {
 		id: POSSIBLE_ROUTES.SOCIAL,
-		title: 'Social - portfolio-svelte',
-		description: 'Social Links'
+		title: 'Vlad Krasovsky Social Links',
+		description: 'Vlad Krasovsky Social Links'
 	},
 	[POSSIBLE_ROUTES.WORKS]: {
 		id: POSSIBLE_ROUTES.WORKS,
-		title: 'Works.svelte - portfolio-svelte',
-		description: 'Portfolio Works'
+		title: 'Vlad Krasovsky Works',
+		description: 'Vlad Krasovsky Works'
 	}
 };
 

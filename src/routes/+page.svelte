@@ -36,12 +36,8 @@
 			clearInterval(interval);
 		}
 	});
-</script>
 
-<svelte:head>
-	<title>Vlad Krasovsky Portfolio</title>
-	<meta name="description" content="Vlad Krasovsky Portfolio" />
-</svelte:head>
+</script>
 
 <section class="relative flex items-center h-full" class:section-image={$siteLayout.darkMode}>
 	<div class:w-[40%]={$siteLayout.isFullScreen} class:w-[70%]={$siteLayout.isIpadVersion || $siteLayout.isMobileVersion} class:ml-[15%]={!$siteLayout.isMobileVersion} class:ml-[5%]={$siteLayout.isMobileVersion} class="flex flex-col gap-6">
