@@ -2,10 +2,14 @@
 	import HoverableCard from '@/components/layout/HoverableCard.svelte';
 </script>
 
-<section class="">
-    <h3>This section is still in progress....</h3>
-	<div class="grid grid-cols-6">
-		<HoverableCard imageUrl="/self-updating-video.png" />
-		<HoverableCard imageUrl="https://jacekjeznach.com/wp-content/uploads/2021/11/Home-Jane-Anson-Inside-Bordeaux-janeanson-com.png" />
+<svelte:head>
+	<title>Works - Vlad Krasovsky Portfolio</title>
+	<meta name="description" content="Vlad Krasovsky Portfolio Works" />
+</svelte:head>
+
+<section class="px-3">
+    <h3 class="text-xl mb-4">This section is still in progress....</h3>
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+		<HoverableCard imageUrl="/self-updating-video.png" altText="Self-updating video project" />
 	</div>
 </section>

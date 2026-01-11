@@ -41,9 +41,9 @@ const documents: DOCUMENT_TYPE[] = [
 		icon: BracketsIcon,
 		display: 'Social.json',
 		url: POSSIBLE_ROUTES.SOCIAL
-	}
+	},
 	// {
-	//     isActive: false,
+	// 	isActive: false,
 	// 	icon: SvelteIcon,
 	// 	display: 'Works.svelte',
 	// 	url: POSSIBLE_ROUTES.WORKS
@@ -57,9 +57,19 @@ export const Routes: Record<POSSIBLE_ROUTES | string, ROUTE_TYPE> = {
 		description: 'Vlad Krasovsky Portfolio'
 	},
 	[POSSIBLE_ROUTES.ABOUTME]: {
-		id: POSSIBLE_ROUTES.INDEX,
+		id: POSSIBLE_ROUTES.ABOUTME,
 		title: 'Vlad Krasovsky About Me',
 		description: 'Vlad Krasovsky About Me'
+	},
+	[POSSIBLE_ROUTES.SOCIAL]: {
+		id: POSSIBLE_ROUTES.SOCIAL,
+		title: 'Social - portfolio-svelte',
+		description: 'Social Links'
+	},
+	[POSSIBLE_ROUTES.WORKS]: {
+		id: POSSIBLE_ROUTES.WORKS,
+		title: 'Works.svelte - portfolio-svelte',
+		description: 'Portfolio Works'
 	}
 };
 

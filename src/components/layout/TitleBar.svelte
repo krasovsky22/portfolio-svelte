@@ -31,26 +31,26 @@
 	]);
 </script>
 
-<div class="flex h-8 w-full items-center rounded-b-md border border-black text-center">
+<div class="flex h-8 w-full items-center rounded-b-md border border-[var(--white-color-border)] dark:border-[var(--dark-color-border)] text-center bg-[var(--white-color-sidebar-bg)] dark:bg-[var(--dark-color-sidebar-bg)]">
 	<div class="flex items-center gap-1 p-1">
-		<Dot class="bg-red-500" />
-		<Dot class="bg-yellow-500" />
-		<Dot class="bg-green-500" />
+		<Dot class="bg-[var(--accent-coral)]" />
+		<Dot class="bg-[var(--accent-warm)]" />
+		<Dot class="bg-[var(--accent-teal)]" />
 	</div>
 	<div class="flex flex-grow items-center">
-		<div class="flex-grow text-gray-800 dark:text-gray-300">
+		<div class="flex-grow text-[var(--white-color-text)] dark:text-[var(--dark-color-text)]">
 			<h4>{$activePage?.display} - portfolio-svelte</h4>
 		</div>
 
 		{#if $siteLayout.isFullScreen}
-			<ul class="flex h-full items-center">
+			<ul class="flex h-full items-center text-[var(--white-color-text-muted)] dark:text-[var(--dark-color-text-muted)]">
 				{#each layoutNavigationActions as { title, icon, action, active }}
 					{@const SvelteComponent = icon}
 					<li
-						class="flex h-full cursor-pointer py-1 hover:text-blue-500"
-						class:text-blue-500={active}
+						class="flex h-full cursor-pointer py-1 hover:text-[var(--accent-teal)]"
+						class:text-[var(--accent-teal)]={active}
 					>
-						<button class="flex items-center" {title} onclick={action}>
+						<button class="flex items-center" {title} onclick={action} aria-label={title}>
 							<SvelteComponent />
 						</button>
 					</li>

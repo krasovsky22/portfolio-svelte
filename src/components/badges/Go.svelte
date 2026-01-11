@@ -2,4 +2,4 @@
     import HoverableCard from '@/components/layout/HoverableCard.svelte';
 </script>
 
-<HoverableCard imageUrl="/badges/go.png" />
+<HoverableCard imageUrl="/badges/go.png" altText="Go (Golang)" />

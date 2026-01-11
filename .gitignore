@@ -30,3 +30,10 @@ bun.lockb
 *.njsproj
 *.sln
 /payload/
+
+# code agents directories
+.github/agents/
+.cursor
+.claude
+.playwright-mcp
+.github

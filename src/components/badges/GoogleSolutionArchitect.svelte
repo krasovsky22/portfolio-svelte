@@ -8,4 +8,4 @@
     // }
 </script>
 
-<HoverableCard imageUrl="/badges/google-solutions-architect-professional.png" />
+<HoverableCard imageUrl="/badges/google-solutions-architect-professional.png" altText="Google Cloud Certified Professional Cloud Architect" />

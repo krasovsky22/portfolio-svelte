@@ -2,4 +2,4 @@
     import HoverableCard from '@/components/layout/HoverableCard.svelte';
 </script>
 
-<HoverableCard imageUrl="/badges/python.png" />
+<HoverableCard imageUrl="/badges/python.png" altText="Python" />

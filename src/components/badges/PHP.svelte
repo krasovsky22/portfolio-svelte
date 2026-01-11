@@ -2,4 +2,4 @@
     import HoverableCard from '@/components/layout/HoverableCard.svelte';
 </script>
 
-<HoverableCard imageUrl="/badges/php.png" />
+<HoverableCard imageUrl="/badges/php.png" altText="PHP" />

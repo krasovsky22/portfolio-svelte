@@ -3,20 +3,67 @@
 @plugin '@tailwindcss/typography';
 
 :root {
+	/* Dark mode colors */
 	--dark-color-main-bg: #252526;
-	--white-color-main-bg: #f8f9fa;
+	--dark-color-sidebar-bg: #333333;
+	--dark-color-panel-bg: #2c2c2c;
+	--dark-color-border: #3c3c3c;
+	--dark-color-hover: #404040;
+	--dark-color-text: #e5e7eb;
+	--dark-color-text-muted: #9ca3af;
+	
+	/* Light mode colors - Warm paper/cream aesthetic */
+	--white-color-main-bg: #faf8f5;
+	--white-color-sidebar-bg: #f0ede8;
+	--white-color-panel-bg: #ffffff;
+	--white-color-border: #d4d0c8;
+	--white-color-hover: #e8e4dc;
+	--white-color-text: #2d2a26;
+	--white-color-text-muted: #6b6560;
+	
+	/* Accent colors */
+	--accent-warm: #c4956a;
+	--accent-teal: #3d8b8b;
+	--accent-coral: #d4705a;
 }
 
-/* Custom scrollbar styling */
+/* Light mode scrollbar styling */
 * {
     scrollbar-width: thin;
-    scrollbar-color: #424242 transparent;
+    scrollbar-color: var(--white-color-border) transparent;
 }
 
 *::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
+
+*::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--white-color-border);
+	border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background-color: #bab5aa;
+}
+
+/* Dark mode scrollbar override */
+.dark * {
+    scrollbar-color: #424242 transparent;
+}
+
+.dark *::-webkit-scrollbar-thumb {
+	background-color: #424242;
+}
+
+.dark *::-webkit-scrollbar-thumb:hover {
+	background-color: #4f4f4f;
+}
+
 .scrollbar-custom::-webkit-scrollbar {
 	width: 8px;
 }
@@ -26,17 +73,29 @@
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
-	background-color: #424242;
+	background-color: var(--white-color-border);
 	border-radius: 4px;
 }
 
+.dark .scrollbar-custom::-webkit-scrollbar-thumb {
+	background-color: #424242;
+}
+
 .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+	background-color: #bab5aa;
+}
+
+.dark .scrollbar-custom::-webkit-scrollbar-thumb:hover {
 	background-color: #4f4f4f;
 }
 
 /* Firefox scrollbar styling */
 .scrollbar-custom {
 	scrollbar-width: thin;
+	scrollbar-color: var(--white-color-border) transparent;
+}
+
+.dark .scrollbar-custom {
 	scrollbar-color: #424242 transparent;
 }
 
@@ -61,19 +120,50 @@ body {
 	flex-direction: column;
 
 	background-color: var(--white-color-main-bg);
-	color: black;
+	color: var(--white-color-text);
 }
 
 .dark body {
 	background-color: var(--dark-color-main-bg);
-	color: #ccc;
+	color: var(--dark-color-text);
 }
 
 .dark modal {
 	background-color: var(--dark-color-main-bg);
-	color: #ccc;
+	color: var(--dark-color-text);
 }
 
 footer {
 	margin-top: auto;
+}
+
+/* Focus-visible states for accessibility */
+*:focus-visible {
+	outline: 2px solid var(--accent-teal);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+	outline: 2px solid var(--accent-teal);
+	outline-offset: 2px;
+}
+
+/* Light mode text overrides */
+.text-gray-500 {
+	color: var(--white-color-text-muted);
+}
+
+.text-black-lighter {
+	color: var(--white-color-text-muted);
+}
+
+/* Dark mode text overrides */
+.dark .text-gray-500 {
+	color: #d1d5db;
+}
+
+.dark .text-black-lighter {
+	color: #9ca3af;
 }

@@ -26,18 +26,18 @@
 			<TitleBar />
 			<div class:flex-col={isMobile || isIpad} class="flex min-h-full w-full flex-grow">
 				{#if isFullScreen}
-					<div class="border-r border-x-black">
+					<div class="border-r border-[var(--white-color-border)] dark:border-[var(--dark-color-border)]">
 						<ActivityBar />
 					</div>
 
-					<div class="border-r border-x-black">
+					<div class="border-r border-[var(--white-color-border)] dark:border-[var(--dark-color-border)]">
 						{#if $siteLayout.showPrimaryBar}
 							<PrimaryBar />
 						{/if}
 					</div>
 				{/if}
 
-				<div class="dark:bg-black-light flex flex-grow flex-col">
+				<div class="bg-[var(--white-color-main-bg)] dark:bg-[var(--dark-color-panel-bg)] flex flex-grow flex-col">
 					<div class="flex flex-grow">
 						<PageContainer>
 							<slot />
@@ -46,7 +46,7 @@
 					<Footer />
 				</div>
 
-				<div class="border-r border-x-black">
+				<div class="border-r border-[var(--white-color-border)] dark:border-[var(--dark-color-border)]">
 					{#if $siteLayout.showRightBar}
 						<RightBar />
 					{/if}

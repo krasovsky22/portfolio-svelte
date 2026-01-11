@@ -8,4 +8,4 @@
     // }
 </script>
 
-<HoverableCard imageUrl="/badges/azure-solutions-architect-expert.png" />
+<HoverableCard imageUrl="/badges/azure-solutions-architect-expert.png" altText="Microsoft Certified Azure Solutions Architect Expert" />

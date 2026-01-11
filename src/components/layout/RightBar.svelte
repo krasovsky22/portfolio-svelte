@@ -53,13 +53,13 @@
 
 {#if $siteLayout.showRightBar}
 	<div
-		class:w-[350px]={$siteLayout.isFullScreen} class="flex h-full flex-1 flex-col overflow-hidden border-l"
+		class:w-[350px]={$siteLayout.isFullScreen} class:w-full={$siteLayout.isMobileVersion} class="flex h-full flex-1 flex-col overflow-hidden border-l border-[var(--white-color-border)] dark:border-[var(--dark-color-border)] bg-[var(--white-color-panel-bg)] dark:bg-[var(--dark-color-panel-bg)]"
 	>
 		<!-- Header bar -->
-		<div class="flex w-full items-center border-b ">
-			<span class="ml-2 border-b border-orange-400 text-[10px]">CHAT</span>
+		<div class="flex w-full items-center border-b border-[var(--white-color-border)] dark:border-[var(--dark-color-border)]">
+			<span class="ml-2 border-b border-[var(--accent-warm)] text-[10px]">CHAT</span>
 			<button
-				class="ml-auto cursor-pointer rounded p-1 hover:bg-[#404040]"
+				class="ml-auto cursor-pointer rounded p-1 hover:bg-[var(--white-color-hover)] dark:hover:bg-[var(--dark-color-hover)]"
 				onclick={toggleRightBar}
 			>
 				<XIcon />
@@ -67,19 +67,19 @@
 		</div>
         
 		<!-- Notification Alert -->
-		<div class="mx-2 mt-2 rounded-lg border-l-4 border-r-4 border-blue-500 bg-gradient-to-r from-blue-900/20 to-blue-800/10 p-3 shadow-sm animate-pulse">
+		<div class="mx-2 mt-2 rounded-lg border-l-4 border-r-4 border-[var(--accent-teal)] bg-[var(--accent-teal)]/10 p-3 shadow-sm">
 			<div class="flex items-center gap-2">
-				<div class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-500/20">
-					<div class="h-2 w-2 rounded-full bg-blue-400 animate-ping"></div>
+				<div class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--accent-teal)]/20">
+					<div class="h-2 w-2 animate-pulse rounded-full bg-[var(--accent-teal)]"></div>
 				</div>
 				<div class="flex-1 text-center">
-					<div class="text-xs font-medium text-blue-500">Live AI Assistant Available</div>
-					<div class="mt-1 text-xs">
-						Call <a href="tel:+18189185059" class="font-mono font-semibold  animate-pulse hover:text-blue-100 underline cursor-pointer">818-918-5059</a> to talk to my AI assistant prototype.
+					<div class="text-xs font-medium text-[var(--accent-teal)]">Live AI Assistant Available</div>
+					<div class="mt-1 text-xs text-[var(--white-color-text)] dark:text-[var(--dark-color-text)]">
+						Call <a href="tel:+18189185059" class="font-mono font-semibold hover:opacity-80 underline cursor-pointer bg-[var(--accent-teal)] hover:bg-[var(--accent-teal)]/90 text-white px-2 py-1 rounded transition-colors">818-918-5059</a> to talk to my AI assistant prototype.
 					</div>
 				</div>
-                <div class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-500/20">
-					<div class="h-2 w-2 rounded-full bg-blue-400 animate-ping"></div>
+                <div class="mt-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--accent-teal)]/20">
+					<div class="h-2 w-2 animate-pulse rounded-full bg-[var(--accent-teal)]"></div>
 				</div>
 			</div>
 		</div>
@@ -95,13 +95,13 @@
 						{#each chat.messages as message, messageIndex (messageIndex)}
 							<div
 								class="flex flex-col gap-2 {(message.role || isLoading) === 'assistant'
-									? 'bg-[#2c2c2c]'
+									? 'bg-[var(--white-color-sidebar-bg)] dark:bg-[var(--dark-color-panel-bg)]'
 									: ''} rounded-lg p-3"
 							>
-								<div class="align-items-center flex gap-1 font-semibold text-[#4e94ce] capitalize">
+								<div class="align-items-center flex gap-1 font-semibold text-[var(--accent-teal)] capitalize">
 									{@render (message.role === 'assistant' ? chatAssistant : chatUser)()}
 								</div>
-								<div class="text-gray-500 dark:text-gray-200">
+								<div class="text-[var(--white-color-text)] dark:text-[var(--dark-color-text)]">
 									{#each message.parts as part, partIndex (partIndex)}
 										{#if part.type === 'text'}
 											<div class="whitespace-pre-wrap">{part.text}</div>
@@ -112,11 +112,11 @@
 						{/each}
 
 						{#if isLoading}
-							<div class="flex flex-col gap-2 rounded-lg p-3">
-								<div class="align-items-center flex gap-1 font-semibold text-[#4e94ce] capitalize">
+							<div class="flex flex-col gap-2 rounded-lg p-3 bg-[var(--white-color-sidebar-bg)] dark:bg-[var(--dark-color-panel-bg)]">
+								<div class="align-items-center flex gap-1 font-semibold text-[var(--accent-teal)] capitalize">
 									{@render chatAssistant()}
 								</div>
-								<div class="text-gray-500 dark:text-gray-200">
+								<div class="text-[var(--white-color-text-muted)] dark:text-[var(--dark-color-text-muted)]">
 									<div>Github Copilot is thinking...</div>
 								</div>
 							</div>
@@ -125,30 +125,30 @@
 				</div>
 
 				<!-- Send message footer card -->
-				<div class="mt-auto flex w-full self-end border-t border-[#404040]  p-4">
+				<div class="mt-auto flex w-full self-end border-t border-[var(--white-color-border)] dark:border-[var(--dark-color-border)] p-4">
 					<form
 						onsubmit={handleSubmit}
-						class="flex w-full flex-col gap-2 rounded border border-[#565656]  px-2 py-1"
+						class="flex w-full flex-col gap-2 rounded border border-[var(--white-color-border)] dark:border-[var(--dark-color-border)] bg-[var(--white-color-sidebar-bg)] dark:bg-transparent px-2 py-1"
 					>
 						<div class="flex w-full items-center gap-2 px-2 py-2">
 							<input
 								bind:value={chat.input}
-								class="flex-1 bg-transparent outline-none text-[12px] dark:text-gray-200"
+								class="flex-1 bg-transparent outline-none text-[12px] text-[var(--white-color-text)] dark:text-[var(--dark-color-text)] placeholder:text-[var(--white-color-text-muted)] dark:placeholder:text-[var(--dark-color-text-muted)]"
 								placeholder="Ask Copilot..."
 							/>
 						</div>
-						<div class="align-items-center ml-auto flex flex-1 justify-between gap-3">
+						<div class="align-items-center ml-auto flex flex-1 justify-between gap-3 text-[var(--white-color-text-muted)] dark:text-[var(--dark-color-text-muted)]">
 							<span class="font-family-[system-ui] my-auto text-[10px]">Ask</span>
 							<span class="font-family-[system-ui] my-auto text-[10px]"
-								>gpt-4.1-mini</span
+								>AI Portfolio Assistant</span
 							>
 							<button
 								type="submit"
-								class="flex h-6 w-6 cursor-pointer items-center justify-center justify-self-end rounded text-sm hover:bg-[#404040] disabled:cursor-not-allowed disabled:opacity-50"
+								class="flex h-6 w-6 cursor-pointer items-center justify-center justify-self-end rounded text-sm hover:bg-[var(--white-color-hover)] dark:hover:bg-[var(--dark-color-hover)] disabled:cursor-not-allowed disabled:opacity-50"
 								title="Send (Enter)"
 								disabled={isLoading}
 							>
-								<SendIcon class="text-[#848484]" size={16} />
+								<SendIcon class="text-[var(--white-color-text-muted)] dark:text-[#848484]" size={16} />
 							</button>
 						</div>
 					</form>

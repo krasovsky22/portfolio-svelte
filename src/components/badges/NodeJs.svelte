@@ -2,4 +2,4 @@
     import HoverableCard from '@/components/layout/HoverableCard.svelte';
 </script>
 
-<HoverableCard imageUrl="/badges/node-js.png" />
+<HoverableCard imageUrl="/badges/node-js.png" altText="Node.js" />

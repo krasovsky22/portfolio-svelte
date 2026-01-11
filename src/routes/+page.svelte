@@ -43,7 +43,7 @@
 	<meta name="description" content="Vlad Krasovsky Portfolio" />
 </svelte:head>
 
-<section class="relative section-image flex items-center h-full">
+<section class="relative flex items-center h-full" class:section-image={$siteLayout.darkMode}>
 	<div class:w-[40%]={$siteLayout.isFullScreen} class:w-[70%]={$siteLayout.isIpadVersion || $siteLayout.isMobileVersion} class:ml-[15%]={!$siteLayout.isMobileVersion} class:ml-[5%]={$siteLayout.isMobileVersion} class="flex flex-col gap-6">
 		<div class="text-6xl text-white"><h1>Vlad Krasovsky</h1></div>
 		<div class="text-2xl flex gap-1 items-center text-primary-light">
@@ -58,13 +58,13 @@
 		</div>
 
 		<div class="flex flex-col gap-6 mt-4">
-			<div class="grid grid-cols-4 gap-4 items-center justify-items-center">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-items-center">
 				<AwsSolutionArchitectBadge />
 				<AzureSolutionArchitectBadge />
 				<GoogleSolutionArchitectBadge />
 				<MetaFrontEndDeveloperBadge />
 			</div>
-			<div class="grid grid-cols-4 gap-4 items-center justify-items-center">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-items-center">
 				<NodeJsBadge />
 				<PHPBadge />
 				<GoBadge />
@@ -76,9 +76,14 @@
 
 <style>
 	.section-image {
-		background-image: url(/main-background.jpg);
+        background-image: url(/main-background.jpg);
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 0 50%;
+	}
+	@media (max-width: 768px) {
+		.section-image {
+			background-position: center;
+		}
 	}
 </style>

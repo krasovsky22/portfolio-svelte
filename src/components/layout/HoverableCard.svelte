@@ -8,9 +8,10 @@
 		imageUrl: string;
 		onClickEvent?: OnClickEventType | null;
 		children?: import('svelte').Snippet;
+		altText?: string;
 	}
 
-	let { imageUrl, onClickEvent = null, children }: Props = $props();
+	let { imageUrl, onClickEvent = null, children, altText = 'text-project' }: Props = $props();
 
 	const children_render = $derived(children);
 </script>
@@ -20,14 +21,14 @@
 		<button
 			type="button"
 			class={`opacity-${
-				hovered ? 100 : 40
-			} relative flex h-full w-full cursor-pointer flex-col overflow-hidden border-none bg-transparent p-2`}
+				hovered ? 100 : 65
+			} relative flex h-full w-full cursor-pointer flex-col overflow-hidden border-none bg-transparent p-2 transition-opacity duration-300`}
 			onclick={onClickEvent}
 			aria-label="View image details"
 		>
 			<img
 				src={imageUrl}
-				alt="text-project"
+				alt={altText}
 				class:zoom={hovered}
 				class="h-full w-full object-contain"
 			/>
