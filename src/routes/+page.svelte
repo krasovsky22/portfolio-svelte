@@ -42,7 +42,7 @@
 <section class="relative flex items-center h-full" class:section-image={$siteLayout.darkMode}>
 	<div class:w-[40%]={$siteLayout.isFullScreen} class:w-[70%]={$siteLayout.isIpadVersion || $siteLayout.isMobileVersion} class:ml-[15%]={!$siteLayout.isMobileVersion} class:ml-[5%]={$siteLayout.isMobileVersion} class="flex flex-col gap-6">
 		<div class="text-6xl text-white"><h1>Vlad Krasovsky</h1></div>
-		<div class="text-2xl flex gap-1 items-center text-primary-light">
+		<div class="text-2xl flex gap-1 items-center text-[var(--hite-color-text-muted)] dark:text-[var(--dark-color-text)]">
 			{#if visible}
 				<h2 in:typeWriterTransition|global={{ speed: 1 }} onintroend={createFlashing}>
 					Full Stack Software Developer
