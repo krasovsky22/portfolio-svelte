@@ -31,19 +31,19 @@
 	]);
 </script>
 
-<div class="flex h-8 w-full items-center rounded-b-md border border-[var(--white-color-border)] dark:border-[var(--dark-color-border)] text-center bg-[var(--white-color-sidebar-bg)] dark:bg-[var(--dark-color-sidebar-bg)]">
+<div class="flex h-8 w-full items-center rounded-b-md border border-[var(--white-color-border)] dark:border-[var(--dark-color-border)] text-center bg-[var(--background-color-sidebar)]">
 	<div class="flex items-center gap-1 p-1">
 		<Dot class="bg-[var(--accent-coral)]" />
 		<Dot class="bg-[var(--accent-warm)]" />
 		<Dot class="bg-[var(--accent-teal)]" />
 	</div>
 	<div class="flex flex-grow items-center">
-		<div class="flex-grow text-[var(--white-color-text)] dark:text-[var(--dark-color-text)]">
+		<div class="flex-grow text-[var(--text-color)]">
 			<h4>{$activePage?.display} - portfolio-svelte</h4>
 		</div>
 
 		{#if $siteLayout.isFullScreen}
-			<ul class="flex h-full items-center text-[var(--white-color-text-muted)] dark:text-[var(--dark-color-text-muted)]">
+			<ul class="flex h-full items-center text-[var(--text-color-muted)]">
 				{#each layoutNavigationActions as { title, icon, action, active }}
 					{@const SvelteComponent = icon}
 					<li

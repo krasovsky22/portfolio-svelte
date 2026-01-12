@@ -9,15 +9,15 @@
 	import PageLink from './PageLink.svelte';
 </script>
 
-<div class="flex h-full w-44 flex-col text-xs bg-[var(--white-color-sidebar-bg)] dark:bg-[var(--dark-color-sidebar-bg)] text-[var(--white-color-text)] dark:text-[var(--dark-color-text)]" transition:fly|global={{ x: -30 }}>
+<div class="flex h-full w-44 flex-col text-xs bg-[var(--background-color-sidebar)] text-[var(--text-color)]" transition:fly|global={{ x: -30 }}>
 	{#if $siteLayout.activeActivityBarTab === 'Explorer'}
-		<div class="p-2 text-[var(--white-color-text-muted)] dark:text-[var(--dark-color-text-muted)]">Explorer</div>
+		<div class="p-2 text-[var(--text-color-muted)]">Explorer</div>
 		<Hoverable classNames="h-full">
 			{#snippet children({ hovering: hovered })}
 				<Collapseable>
 					{#snippet header({ collapsed })}
 						<div
-							class="border-[var(--white-color-border)] dark:border-[var(--dark-color-border)] text-[var(--white-color-text-muted)] dark:text-[var(--dark-color-text-muted)] bg-[var(--white-color-hover)] dark:bg-[var(--dark-color-hover)] space-between flex cursor-pointer items-center border px-1 py-0.5 uppercase"
+							class="border-[var(--white-color-border)] dark:border-[var(--dark-color-border)] text-[var(--text-color-muted)] bg-[var(--background-color-hover)] space-between flex cursor-pointer items-center border px-1 py-0.5 uppercase"
 						>
 							<div class="flex flex-grow items-center gap-3">
 								<ArrowIcon size={18} rotate={collapsed ? 0 : 1} />

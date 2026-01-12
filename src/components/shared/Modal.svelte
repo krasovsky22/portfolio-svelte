@@ -18,17 +18,17 @@
 		aria-modal="true"
 	>
 		<!-- Background overlay -->
-		<div class="fixed inset-0 bg-gray-900/60 dark:bg-black/80 pointer-events-auto" onclick={close}></div>
+		<div class="fixed inset-0 bg-[var(--background-color-overlay)] pointer-events-auto" onclick={close}></div>
 		
 		<div
 			class="relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all pointer-events-auto "
 		>
-			<div class=" flex flex-col justify-center items-center border border-gray-200 dark:border-gray-600">
-				<div class="flex gap-1 border-b border-gray-200 dark:border-gray-600 w-full">
-					<div class="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-center flex-grow py-2 px-4">{title}</div>
+			<div class=" flex flex-col justify-center items-center border border-[var(--white-color-border)] dark:border-[var(--dark-color-border)]">
+				<div class="flex gap-1 border-b border-[var(--white-color-border)] dark:border-[var(--dark-color-border)] w-full">
+					<div class="bg-[var(--background-color-modal-header)] text-[var(--text-color)] text-center flex-grow py-2 px-4">{title}</div>
 					<button
 						type="button"
-						class="cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-gray-800 dark:hover:text-gray-200 absolute top-2 right-2 p-1 rounded"
+						class="cursor-pointer hover:bg-[var(--background-color-hover)] text-[var(--text-color)] absolute top-2 right-2 p-1 rounded"
 						onclick={close}
 						aria-label="Close modal"
 					>
@@ -36,7 +36,7 @@
 					</button>
 				</div>
 
-				<div class="p-5 w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 modal">
+				<div class="p-5 w-full bg-[var(--background-color-modal-content)] text-[var(--text-color)] modal">
 					{@render children?.()}
 				</div>
 			</div>

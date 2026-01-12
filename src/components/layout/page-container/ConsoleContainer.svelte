@@ -43,7 +43,7 @@
 		<div class="flex flex-row flex-grow gap-3 items-center">
 			{#each consoleTabs as { name }, index}
 				<button
-					class="px-2 hover:text-gray-200 cursor-pointer border-black-lighter"
+					class="px-2 hover:text-[var(--text-color)] cursor-pointer border-black-lighter"
 					class:border-b-2={activeTab === index}
 					title={name}
 					onclick={() => (activeTab = index)}
@@ -53,13 +53,13 @@
 			{/each}
 		</div>
 		<button
-			class="cursor-pointer hover:bg-black-lighter hover:text-gray-200"
+			class="cursor-pointer hover:bg-black-lighter hover:text-[var(--text-color)]"
 			onclick={() => ($siteLayout.showConsoleBar = false)}
 		>
 			<XIcon />
 		</button>
 	</div>
-	<div class="flex-grow text-gray-400">
+	<div class="flex-grow text-[var(--text-color-muted)]">
 		<SvelteComponent />
 	</div>
 </div>

@@ -23,6 +23,8 @@ const getInitialDarkMode = (): boolean => {
 	return window.matchMedia('(prefers-color-scheme: dark)')?.matches ?? false;
 };
 
+const initialDarkMode = getInitialDarkMode();
+
 export const siteLayout = writable({
 	isFullScreen: isFullScreen.current,
 	isIpadVersion: isIpadVersion.current,
@@ -31,19 +33,67 @@ export const siteLayout = writable({
 	showRightBar: !isMobileVersion.current,
 	showPrimaryBar: true,
 	showConsoleBar: false,
-	darkMode: getInitialDarkMode(),
+	darkMode: initialDarkMode,
 	activeActivityBarTab: 'Explorer'
 });
+
+// Initialize CSS variables on page load
+if (browser) {
+	const root = document.documentElement;
+	if (initialDarkMode) {
+		root.classList.add('dark');
+		root.style.setProperty('--background-color', 'var(--dark-color-main-bg)');
+		root.style.setProperty('--background-color-sidebar', 'var(--dark-color-sidebar-bg)');
+		root.style.setProperty('--background-color-panel', 'var(--dark-color-panel-bg)');
+		root.style.setProperty('--background-color-hover', 'var(--dark-color-hover)');
+		root.style.setProperty('--background-color-overlay', 'rgba(0, 0, 0, 0.8)');
+		root.style.setProperty('--background-color-modal-header', 'var(--dark-color-sidebar-bg)');
+		root.style.setProperty('--background-color-modal-content', 'var(--dark-color-panel-bg)');
+		root.style.setProperty('--text-color', 'var(--dark-color-text)');
+		root.style.setProperty('--text-color-muted', 'var(--dark-color-text-muted)');
+	} else {
+		root.classList.remove('dark');
+		root.style.setProperty('--background-color', 'var(--white-color-main-bg)');
+		root.style.setProperty('--background-color-sidebar', 'var(--white-color-sidebar-bg)');
+		root.style.setProperty('--background-color-panel', 'var(--white-color-panel-bg)');
+		root.style.setProperty('--background-color-hover', 'var(--white-color-hover)');
+		root.style.setProperty('--background-color-overlay', 'rgba(0, 0, 0, 0.6)');
+		root.style.setProperty('--background-color-modal-header', 'var(--white-color-sidebar-bg)');
+		root.style.setProperty('--background-color-modal-content', 'var(--white-color-panel-bg)');
+		root.style.setProperty('--text-color', 'var(--white-color-text)');
+		root.style.setProperty('--text-color-muted', 'var(--white-color-text-muted)');
+	}
+}
 
 siteLayout.subscribe(({ darkMode }) => {
 	if (!browser) {
 		return;
 	}
 
+	const root = document.documentElement;
+	
 	if (darkMode) {
-		document.documentElement.classList.add('dark');
+		root.classList.add('dark');
+		root.style.setProperty('--background-color', 'var(--dark-color-main-bg)');
+		root.style.setProperty('--background-color-sidebar', 'var(--dark-color-sidebar-bg)');
+		root.style.setProperty('--background-color-panel', 'var(--dark-color-panel-bg)');
+		root.style.setProperty('--background-color-hover', 'var(--dark-color-hover)');
+		root.style.setProperty('--background-color-overlay', 'rgba(0, 0, 0, 0.8)');
+		root.style.setProperty('--background-color-modal-header', 'var(--dark-color-sidebar-bg)');
+		root.style.setProperty('--background-color-modal-content', 'var(--dark-color-panel-bg)');
+		root.style.setProperty('--text-color', 'var(--dark-color-text)');
+		root.style.setProperty('--text-color-muted', 'var(--dark-color-text-muted)');
 	} else {
-		document.documentElement.classList.remove('dark');
+		root.classList.remove('dark');
+		root.style.setProperty('--background-color', 'var(--white-color-main-bg)');
+		root.style.setProperty('--background-color-sidebar', 'var(--white-color-sidebar-bg)');
+		root.style.setProperty('--background-color-panel', 'var(--white-color-panel-bg)');
+		root.style.setProperty('--background-color-hover', 'var(--white-color-hover)');
+		root.style.setProperty('--background-color-overlay', 'rgba(0, 0, 0, 0.6)');
+		root.style.setProperty('--background-color-modal-header', 'var(--white-color-sidebar-bg)');
+		root.style.setProperty('--background-color-modal-content', 'var(--white-color-panel-bg)');
+		root.style.setProperty('--text-color', 'var(--white-color-text)');
+		root.style.setProperty('--text-color-muted', 'var(--white-color-text-muted)');
 	}
 });
 

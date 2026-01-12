@@ -67,7 +67,7 @@
 	];
 </script>
 
-<div class="w-12 flex flex-col h-full align-top bg-[var(--white-color-sidebar-bg)] dark:bg-[var(--dark-color-sidebar-bg)] text-[var(--white-color-text-muted)] dark:text-[var(--dark-color-text-muted)]">
+<div class="w-12 flex flex-col h-full align-top bg-[var(--background-color-sidebar)] text-[var(--text-color-muted)]">
 	<ul class="w-full flex flex-col justify-start flex-grow">
 		{#each activityBarItems as { title, icon, url }}
 			<li

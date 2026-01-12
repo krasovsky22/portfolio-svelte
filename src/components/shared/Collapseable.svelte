@@ -27,7 +27,7 @@
 </script>
 
 <div class="w-full">
-	<button onclick={toggle} >
+	<button onclick={toggle} class="w-full" >
 		{#if header}{@render header({ collapsed, })}{:else}
 			<div class={`flex gap-2 items-center w-full pl-${depth} ${headClass}`}>
 				<ArrowIcon size={18} rotate={collapsed ? 0 : 1} />

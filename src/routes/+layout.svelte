@@ -14,7 +14,7 @@
 	{#snippet backdrop({ close })}
 		<button
 			type="button"
-			class="fixed inset-0 z-10 w-full bg-gray-500 opacity-75 transition-opacity"
+			class="fixed inset-0 z-10 w-full bg-[var(--background-color-overlay)] transition-opacity"
 			aria-label="Close modal"
 			onclick={() => close()}
 		></button>
@@ -43,7 +43,7 @@
 					</div>
 				{/if}
 
-				<div class="bg-[var(--white-color-main-bg)] dark:bg-[var(--dark-color-panel-bg)] flex flex-grow flex-col">
+				<div class="bg-[var(--background-color-panel)] flex flex-grow flex-col">
 					<div class="flex flex-grow">
 						<PageContainer>
 							<slot />

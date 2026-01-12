@@ -25,6 +25,19 @@
 	--accent-warm: #c4956a;
 	--accent-teal: #3d8b8b;
 	--accent-coral: #d4705a;
+	
+	/* Dynamic background colors - updated by site-layout.ts */
+	--background-color: var(--white-color-main-bg);
+	--background-color-sidebar: var(--white-color-sidebar-bg);
+	--background-color-panel: var(--white-color-panel-bg);
+	--background-color-hover: var(--white-color-hover);
+	--background-color-overlay: rgba(0, 0, 0, 0.6);
+	--background-color-modal-header: var(--white-color-sidebar-bg);
+	--background-color-modal-content: var(--white-color-panel-bg);
+	
+	/* Dynamic text colors - updated by site-layout.ts */
+	--text-color: var(--white-color-text);
+	--text-color-muted: var(--white-color-text-muted);
 }
 
 /* Light mode scrollbar styling */
@@ -119,18 +132,12 @@ body {
 	display: flex;
 	flex-direction: column;
 
-	background-color: var(--white-color-main-bg);
-	color: var(--white-color-text);
-}
-
-.dark body {
-	background-color: var(--dark-color-main-bg);
-	color: var(--dark-color-text);
+	background-color: var(--background-color);
+	color: var(--text-color);
 }
 
 .dark modal {
-	background-color: var(--dark-color-main-bg);
-	color: var(--dark-color-text);
+	color: var(--text-color);
 }
 
 footer {
@@ -152,18 +159,18 @@ a:focus-visible {
 
 /* Light mode text overrides */
 .text-gray-500 {
-	color: var(--white-color-text-muted);
+	color: var(--text-color-muted);
 }
 
 .text-black-lighter {
-	color: var(--white-color-text-muted);
+	color: var(--text-color-muted);
 }
 
 /* Dark mode text overrides */
 .dark .text-gray-500 {
-	color: #d1d5db;
+	color: var(--text-color-muted);
 }
 
 .dark .text-black-lighter {
-	color: #9ca3af;
+	color: var(--text-color-muted);
 }
